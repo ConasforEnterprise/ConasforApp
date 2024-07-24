@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/verde_menu"></solid>
+    <corners android:radius="100dp"></corners>
+
+
+</shape>

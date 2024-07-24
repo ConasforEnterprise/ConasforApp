@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Leer_Listas_Cargue.LeerInfoVehiculoFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/verde_Claro"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtPlacaVehiculoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/icono_placa"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPlacaLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Placa"
+                        android:enabled="false"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtTipoVehiculoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPlacaVehiculoLeerCD"
+                    app:startIconDrawable="@drawable/icono_tipo_vehiculo"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtVehiculoLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Vehículo"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/viewLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTipoVehiculoLeerCD"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/linearLayout8LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Documentos vehículo"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        >
+
+                    </TextView>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutTarjetaPropiedadLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout8LeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tarjeta de\npropiedad"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgTarjetaPropiedadLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiTarjetaPropiedadLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoTarjetaPropiedadLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutSOATLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutTarjetaPropiedadLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="SOAT Vigente"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgSOATVigenteLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        android:background="@drawable/color_estado_radio_button"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiSOATVigenteLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoSOATVigenteLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutTecnicomecanicaLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutSOATLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Revisión\ntecnicomecánica"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgRevisionTecnicomecanicaLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiRevisionTecnicomecanicaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:enabled="false"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro" />
+
+                        <RadioButton
+                            android:id="@+id/rbNoRevisionTecnicomecanicaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view2LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutTecnicomecanicaLeerCD"
+                    tools:layout_editor_absoluteX="0dp" />
+
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutEstadoLucesLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2LeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="Estado luces"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLucesAltasLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEstadoLucesLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Altas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLucesAltasLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLucesAltasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalLucesAltasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBajasLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLucesAltasLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Bajas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLucesBajasLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLucesBajasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalLucesBajasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDireccionalesLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBajasLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Direccionales"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDireccionalesLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDireccionalesLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalDireccionalesLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutSonidoReversaLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDireccionalesLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Sonido reversa"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgSonidoReversaLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienSonidoReversaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalSonidoReversaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutReversaLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutSonidoReversaLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Reversa"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgReversaLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienReversaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalReversaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutStopLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutReversaLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Stop"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgStopLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienStopLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalStopLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view4LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutStopLeerCD"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutElementosProtecciónPrevencionLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4LeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Elementos de prevención y protección"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutRetrovisoresLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutElementosProtecciónPrevencionLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Retrovisores"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgRetrovisoresLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienRetrovisoresLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalRetrovisoresLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                           />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutPlumillasLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutRetrovisoresLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Plumillas"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgPlumillasLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienPlumillasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalPlumillasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEstadoPanoramicosLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutPlumillasLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Estado\npanorámicos"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgEstadoPanoramicosLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienEstadoPanoramicosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalEstadoPanoramicosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEspejosLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEstadoPanoramicosLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Espejos"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgEspejosLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienEspejosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalEspejosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBocinaLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEspejosLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Bocina"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBocinaLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbBienBocinaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalBocinaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCinturonLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBocinaLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Cinturon"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCinturonLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCinturonLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalCinturonLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutFrenoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCinturonLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Freno"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgFrenoLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienFrenoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalFrenoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLlantasLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutFrenoLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Llantas"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLlantasLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLlantasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalLlantasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBotiquinLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLlantasLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Botiquin"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBotiquinLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienBotiquinLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalBotiquinLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutExtintorABCLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBotiquinLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Extintor ABC"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgExtintorABCLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienExtintorABCLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalExtintorABCLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBotasLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutExtintorABCLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Botas"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBotasLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienBotasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalBotasLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutChalecoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBotasLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Chaleco"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgChalecoLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienChalecoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalChalecoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCascoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutChalecoLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Casco"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCascoLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCascoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalCascoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutCarroceriaAccesoriosLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCascoLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Carrocería y accesorios"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCarroceriaLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCarroceriaAccesoriosLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Carrocería"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCarroceriaLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCarroceriaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalCarroceriaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                           />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDosEslingasBancoLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCarroceriaLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dos eslingas\npor banco"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDosEslingasBancoLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDosEslingasBancoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalDosEslingasBancoLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDosConosReflectivosLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDosEslingasBancoLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dos conos\nreflectivos"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDosConosReflectivosLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDosConosReflectivosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalDosConosReflectivosLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutParalesIgualLongitudLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDosConosReflectivosLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Parales\n(igual longitud)"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgParalesIgualLongitudLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienParalesIgualLongitudLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbMalParalesIgualLongitudLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/view6LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutParalesIgualLongitudLeerCD">
+
+                </View>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutObservacionesLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view6LeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Observaciones"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtObservacionesLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutObservacionesLeerCD"
+                    app:boxBackgroundColor="@color/white"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtObservacionesInfoVehiculoLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Observaciones"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

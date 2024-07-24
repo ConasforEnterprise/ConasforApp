@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Leer_Listas_Cargue.LeerInfoConductorFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/verde_Claro"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreConductorLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/icono_nombre_conductor"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNombreConductorLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre Conductor"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutLeerCD"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreConductorLeerCD"
+                    app:startIconDrawable="@drawable/icono_documento_identificacion"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCedulaConductorLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Cédula"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtLugarExpedicionConductorLeerCD"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreConductorLeerCD"
+                    app:startIconDrawable="@drawable/icono_nombre_zona2"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLugarExpedicionConductorLeerCD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:hint="Expedición"
+                        android:inputType="textMultiLine|textImeMultiLine"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLicConduccionLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Licencia de\nConducción\nVigente"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLicConduccionLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiLicConduccionLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoLicConduccionLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutPolizaRCELeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLicConduccionLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Poliza de \nRCE Vigente"
+                        android:textSize="18dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rdgPolizaRCELeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiPolizaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoPolizaLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutAfiliacionSGSSSLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutPolizaRCELeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Afiliación al SGSSS"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEPSLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutAfiliacionSGSSSLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="EPS"
+                        android:textSize="18dp"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/rdgEPSLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiEPSLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoEPSLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualEPSLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEPSLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual EPS:"
+                        android:textSize="18dp"
+                        />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="30dp">
+                    </View>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:boxBackgroundColor="@color/white"
+                        style="@style/TextInputLayoutRounded"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/atcEPSLeerCD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="EPS"
+                            tools:ignore="Autofill"
+                            android:enabled="false"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualEPSLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="ARL"
+                        android:textSize="18dp"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/rdgARLLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiARLLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoARLLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualARLLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6LeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual ARL:"
+                        android:textSize="18dp"
+                        >
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="30dp">
+                    </View>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:boxBackgroundColor="@color/white"
+                        style="@style/TextInputLayoutRounded"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/atcARLLeerCD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ARL"
+                            tools:ignore="Autofill"
+                            android:enabled="false"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutAFPLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualARLLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="AFP"
+                        android:textSize="18dp"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/rdgAFPLeerCD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiAFPLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbNoAFPLeerCD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            android:enabled="false"
+                            />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualAFPLeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutAFPLeerCD">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual AFP:"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="30dp">
+
+                    </View>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:boxBackgroundColor="@color/white"
+                        style="@style/TextInputLayoutRounded"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/atcAFPLeerCD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="AFP"
+                            tools:ignore="Autofill"
+                            android:enabled="false"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view2LeerCD"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualAFPLeerCD"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

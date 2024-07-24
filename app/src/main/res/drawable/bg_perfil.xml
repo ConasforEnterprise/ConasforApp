@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Parte superior sin redondear -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/transparente" /> <!-- Puedes cambiar el color según tus necesidades -->
+        </shape>
+    </item>
+
+    <!-- Semicírculo en la parte inferior -->
+    <item
+        android:top="-500dp"
+        android:right="-100dp"
+        android:left="-100dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/verde_menu" /> <!-- Puedes cambiar el color según tus necesidades -->
+        </shape>
+    </item>
+</layer-list>

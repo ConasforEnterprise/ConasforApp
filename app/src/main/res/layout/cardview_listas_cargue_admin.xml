@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="40dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:id="@+id/cardViewListasAdmin"
+    tools:ignore="MissingDefaultResource"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#E5EED2"
+        app:cardCornerRadius="40dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:elevation="12dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparente"
+            >
+            <TextView
+                android:id="@+id/txtTagFincaCardAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finca "
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtNombreFincaCardAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="0dp"
+                android:text=" Nombre finca"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+
+        >
+        <RelativeLayout
+            android:id="@+id/rLayoutAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_listas_admin"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+                <LinearLayout
+                    android:id="@+id/lLayoutFechaAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha : "
+                        android:textColor="@color/black">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/txtFechaListasAdmin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Valor fecha"
+                        android:textColor="@color/black">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgUsuarioCardAdmin"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:src="@drawable/icono_usuario_supervisor_listas"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_toEndOf="@+id/imgUsuarioCardAdmin"
+                    android:layout_toRightOf="@+id/imgUsuarioCardAdmin"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgUsuarioCardAdmin"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutFechaAdmin"
+                    app:layout_constraintVertical_bias="0.214">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Supervisor: "
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtNombreSupervisorAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre\nsupervisor"
+                            android:textColor="@color/black"
+                            android:textSize="18sp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagConductorCardAdmin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Conductor: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtNombreConductorCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="0dp"
+                            android:text="Nombre conductor"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagPlacaCardAdmin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Placa vehículo : "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtPlacaCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="0dp"
+                            android:text="Placa"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <!--
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagFincaCardAdmin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Finca: "
+                            android:textColor="@color/white"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtNombreFincaCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="0dp"
+                            android:text="Nombre finca"
+                            android:textColor="@color/white">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+                    -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagHoraEntradaCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hora entrada camión: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtHoraEntradaCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hora entrada"
+                            android:textColor="@color/black">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagHoraSalidaCardAdmin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hora salida camión: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtHoraSalidaCardAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hora salida"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+
+        <!--
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutAdmin">
+
+
+            <TextView
+                android:id="@+id/txtTagNumeroListaCardAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:text="Lista # : "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/txtNumeroListaCardAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+                </LinearLayout>
+                -->
+
+
+                <!--
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutAdmin">
+
+
+
+                    <TextView
+                        android:id="@+id/txtTagIdUsuario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Id Usuario : "
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/txtIdUsuarios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+                -->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

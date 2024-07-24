@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Leer_Listas_Cargue.LeerInfoLugarFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/verde_Claro"
+            app:cardCornerRadius="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtFechaLeer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/calendario"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxStrokeErrorColor="@color/verde_menu"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtFechaLeer"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtHoraLlegadaLeer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/reloj"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:boxStrokeErrorColor="@color/verde_menu"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtHoraLlegadaLeer"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtTipoCargueLeer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:hint="Tipo de cargue"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    app:boxBackgroundMode="outline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHoraLlegadaLeer"
+                    app:startIconDrawable="@drawable/icono_tipo_cargue2"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:boxStrokeErrorColor="@color/verde_menu"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtTipoCargueLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:inputType="none"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreZonaLeer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Nombre de la zona"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTipoCargueLeer"
+                    app:startIconDrawable="@drawable/icono_nombre_zona2"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNombreZonaLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreNucleoLeer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Nombre del núcleo"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    app:boxBackgroundMode="outline"
+                    app:startIconDrawable="@drawable/icono_nombre_nucleo"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreZonaLeer"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNombreNucleoLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreFincaLeer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Nombre de la finca"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:startIconDrawable="@drawable/icono_nombre_finca2"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    app:boxBackgroundMode="outline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreNucleoLeer"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    app:boxBackgroundColor="@color/white"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNombreFincaLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</FrameLayout>

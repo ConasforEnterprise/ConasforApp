@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.AgregarDatosFirestore"
+    >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!--
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgBtnAtrasAdicionarDatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/baseline_arrow_back_24_black"
+            android:foreground="@drawable/ripple_effect"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+            -->
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Agregar Datos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agregar datos lugar de cargue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.254"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/btnAddTipoCargue"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Tipo de cargue"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                    <Button
+                        android:id="@+id/btnAddZona"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Zona"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddTipoCargue" />
+
+                    <Button
+                        android:id="@+id/btnAddNucleo"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Núcleo"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddZona" />
+
+                    <Button
+                        android:id="@+id/btnAddFinca"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Fincas"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddNucleo" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/white"
+                        android:text="Agregar datos usuarios"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.208"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddFinca"/>
+
+                    <Button
+                        android:id="@+id/btnAddCargo"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Cargo"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <Button
+                        android:id="@+id/btnAddEPS"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="EPS"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddCargo"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <Button
+                        android:id="@+id/btnAddARL"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="ARL"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddEPS"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <Button
+                        android:id="@+id/btnAddAFP"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="AFP"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddARL"
+                        tools:layout_editor_absoluteX="0dp" />
+
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Agregar datos vehículos"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.196"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddAFP"/>
+
+                    <Button
+                        android:id="@+id/btnAddVehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="40dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Vehículo"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="start|center"
+                        android:drawableEnd="@drawable/baseline_add_24"
+                        android:drawableTint="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddVehiculo"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameDatosNuevos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="700dp"
+                app:cardCornerRadius="40dp"
+                android:elevation="20dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAddDatosFirestore"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="22dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:elevation="20dp"
+                    >
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottieAnimationAddDatosFirestore"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_centerInParent="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/check_animation"
+                        android:visibility="gone"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtlistaEditada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Datos agregados con éxito"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="100dp"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:textAlignment="center"
+                        android:visibility="gone"
+                        />
+                </androidx.cardview.widget.CardView>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_remove_24"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@color/gray"
+                            android:layout_gravity="center_horizontal" />
+
+                        <TextView
+                            android:id="@+id/txtEncabezadoDatosNuevos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Encabezado"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="60dp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="80dp">
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/txtDatosNuevos"
+                                style="@style/TextInputLayoutRounded"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingHorizontal="20dp"
+                                app:boxStrokeColor="@color/verde_menu"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:startIconDrawable="@drawable/icono_nombre_apellido"
+                                app:startIconTint="@color/verde_menu"
+                                >
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtDatosNuevos"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <Button
+                                android:id="@+id/btnAgregarDatosNuevos"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="40dp"
+                                android:backgroundTint="@color/verde_menu"
+                                android:text="Agregar"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtDatosNuevos" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>

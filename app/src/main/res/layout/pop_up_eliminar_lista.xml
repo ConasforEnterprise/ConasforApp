@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="350dp"
+    android:layout_gravity="center"
+    android:background="@color/verde_menu"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="109dp"
+        android:text="¿Estas seguro que quieres eliminar esta lista de chqueo?"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.078"
+        tools:layout_editor_absoluteX="0dp">
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="69dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="40dp">
+
+        <Button
+            android:id="@+id/btnAceptarEliminarLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aceptar"
+            android:backgroundTint="@color/verde_oscuro"
+            >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnCancelarEliminarLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Cancelar"
+            android:textColor="@color/verde_oscuro"
+            android:backgroundTint="@color/white"
+            >
+
+        </Button>
+
+    </RelativeLayout>
+
+</RelativeLayout>

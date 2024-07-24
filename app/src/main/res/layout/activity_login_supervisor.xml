@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuarios.LoginUsuario"
+    android:background="@color/white"
+    >
+
+    <!--
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="76dp"
+        android:src="@drawable/icono_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout7"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:startIconDrawable="@drawable/icono_correo"
+        app:startIconTint="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        style="@style/TextInputLayoutRounded"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCorreoLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout8"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:paddingHorizontal="20dp"
+        app:startIconDrawable="@drawable/icono_contrasena"
+        app:startIconTint="@color/verde_menu"
+        app:boxStrokeColor="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:hintTextColor="@color/verde_oscuro"
+        style="@style/TextInputLayoutRounded"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtContrasenaLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnIngresarApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/verde_menu"
+        android:text="Ingresar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/txtRegistroUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Registrarse"
+        android:textColor="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresarApp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/btnSignInGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Registrarse con Google"
+        android:textColor="@color/verde_oscuro"
+        android:backgroundTint ="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableRight ="@drawable/icono_google"
+
+        >
+    </Button>
+    -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

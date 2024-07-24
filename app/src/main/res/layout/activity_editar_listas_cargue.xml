@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Editar_Listas_Cargue.EditarListasCargue">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/verde_menu"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <Button
+                android:id="@+id/btnRegresarEditar"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:drawableBottom="@drawable/baseline_arrow_back_24"
+                android:focusable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:id="@+id/id_listaEditarListas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
+                android:text="Editar lista"
+                android:textSize="22dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtTagFechaEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginStart="40dp"
+                android:text="Fecha : "
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txtFechaEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="110dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Id_lista : "
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="0dp"
+                />
+
+            <TextView
+                android:id="@+id/txtIdListaEditarListas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="ID Lista"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLayoutLugarCargaraEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.534"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEditar">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabItem1CargueDescargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icono_num_uno_listas"
+                app:tint="@null"
+                app:shapeAppearanceOverlay="@style/RoundedShape"
+                />
+
+            <TextView
+                android:id="@+id/txtItemInfoLugarCargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                android:text="Información del lugar donde se cargará"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+                tools:layout_editor_absoluteY="128dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLayoutInfoConductorEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutLugarCargara">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabItem2CargueDescargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icono_num_dos_listas"
+                app:shapeAppearanceOverlay="@style/RoundedShape"
+                app:tint="@null"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="207dp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemInfoConductorEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                android:text="Información del conductor"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
+                tools:layout_editor_absoluteY="227dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLayoutInfoVehiculoEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="330dp"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutInfoConductor">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabItem3CargueDescargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icono_num_tres_listas"
+                app:tint="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedShape"
+                tools:layout_editor_absoluteY="301dp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemInfoVehiculoEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                android:text="Información del vehículo"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="290dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLayoutEstadoCargueEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="410dp"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.661"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutInfoVehiculoEditar">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabItem4CargueDescargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icono_num_cuatro_listas"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedShape"
+                app:tint="@null"
+                tools:layout_editor_absoluteY="389dp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemEstadoCargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                android:text="Estado del cargue"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="162dp"
+                tools:layout_editor_absoluteY="388dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLayoutFirmasNombresEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="490dp"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.661"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutEstadoCargueEditar">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabItem5CargueDescargueEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icono_num_cinco_listas"
+                app:shapeAppearanceOverlay="@style/RoundedShape"
+                app:tint="@null"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="487dp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemFirmasNombresEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:text="Firmas"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/floatingActionButton5"
+                tools:layout_editor_absoluteY="502dp"
+                />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardListaEditar"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="22dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            >
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationButtonEdit"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/check_animation"
+                />
+
+            <TextView
+                android:id="@+id/txtlistaEditada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos actualizados con éxito"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:visibility="gone"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnGuardarDatosCargueDescargueEditar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="Guardar"
+            android:textColor="@color/verde_oscuro"
+            android:layout_marginTop="700dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            />
+        <FrameLayout
+            android:id="@+id/bottomSheetPadreEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:behavior_hideable="true"
+            android:backgroundTint="@color/verde_menu"
+            android:elevation="20dp"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

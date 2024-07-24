@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.HomeFragment"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="0dp"
+        android:elevation="10dp"
+        android:src="@drawable/ic_pine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+    <RelativeLayout
+        android:id="@+id/rLayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/img_home"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/lLayoutNombreBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtUsuarioRegistrado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qué tengas un excelente día"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/white"
+            />
+
+        <!--
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/icono_logo">
+
+        </ImageView>
+        -->
+    </RelativeLayout>
+
+    <!--
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:outlineAmbientShadowColor="@color/verde_oscuro"
+        android:outlineSpotShadowColor="@color/verde_oscuro"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="20dp"
+        app:cardElevation="10dp"
+
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:navigationIcon="@drawable/baseline_menu_24"
+            />
+    </androidx.cardview.widget.CardView>
+    -->
+
+    <!--
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCerrarSesionHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="325dp"
+        android:layout_marginTop="20dp"
+        android:text="Cerrar sesión"
+        app:shapeAppearanceOverlay="@style/RoundedShape"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+-->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeVacio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rLayoutHome"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icono_pino_home">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:gravity="center"
+                    android:text="Nosotros"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnDesplegarNosotros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparente"
+                android:src="@drawable/icono_desplegar_abajo_verde"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.836"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout10"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/txtDescripcionNosotros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="18dp"
+                android:text="Consultas y Asesorías Forestales, surge como una iniciativa  empresarial, cuyo objetivo era la  de incursionar en el naciente  sector forestal del departamento  del Cauca. \n\nAl prevalecer en el mercado por
+32 años, CONASFOR S.A.S en cabeza de su gerente y apoyado  por el grupo de colaboradores  altamente calificados con que cuenta; han trazado metas que  permitan continuar con esa  competitividad, seriedad y  calidad; valores con que se ha  reconocido en el sector."
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnDesplegarNosotros" />
+
+            <!--
+            <LinearLayout
+                android:id="@+id/LlayoutCarruselImagenes"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescripcionNosotros">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerImgSliderHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </androidx.viewpager2.widget.ViewPager2>
+            </LinearLayout>
+            -->
+
+            <!-- app:layout_constraintTop_toBottomOf="@+id/LlayoutCarruselImagenes" -->
+
+            <LinearLayout
+                android:id="@+id/lLayoutTipsSST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescripcionNosotros"
+                >
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icono_tips_sst">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="center"
+                    android:text="Tips SST"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    >
+
+                </TextView>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/imgDesplegarTips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/transparente"
+                android:src="@drawable/icono_desplegar_abajo_verde"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.822"
+                app:layout_constraintStart_toEndOf="@+id/lLayoutTipsSST"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescripcionNosotros">
+
+            </ImageButton>
+
+            <LinearLayout
+                android:id="@+id/lLayoutCardsTips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/lLayoutTipsSST"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rLayoutCardTips"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewHome1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:clickable="true"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/img_reforestacion"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <ImageView
+                                        android:clickable="true"
+                                        android:id="@+id/iconImageView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:id="@+id/txtTipsMascotasHome"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tips reforestación"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="100dp"
+                                        >
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rLayoutCardTips2"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rLayoutCardTips"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewHome2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:clickable="true"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/img_tips_alturas_arboles"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <ImageView
+                                        android:id="@+id/iconImageView2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:id="@+id/txtTipsMascotasHome2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cuidado en aturas"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="100dp"
+                                        >
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rLayoutCardTips3"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rLayoutCardsTips2"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewHome3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:clickable="true"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/img_tips_quema_arboles"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <ImageView
+                                        android:id="@+id/iconImageView3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:id="@+id/txtTipsMascotasHome3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cuidados medio ambiente"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="100dp"
+                                        >
+
+                                    </TextView>
+                                </RelativeLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rLayoutCardTips4"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rLayoutCardTips3"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardViewHome4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/img_tips_cargue_madera"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <ImageView
+                                        android:id="@+id/iconImageView4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:id="@+id/txtTipsMascotasHome4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Consejos cargue y descargue de madera"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="70dp"
+                                        >
+                                    </TextView>
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+            </LinearLayout>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+   </ScrollView>
+
+    <!--
+   <RelativeLayout
+       android:id="@+id/relativeVacio"
+       android:layout_width="match_parent"
+       android:layout_height="80dp"
+       android:layout_alignParentBottom="true"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf=" @+id/scrollView2"
+       >
+   </RelativeLayout>
+   -->
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        />
+        -->
+</androidx.drawerlayout.widget.DrawerLayout>

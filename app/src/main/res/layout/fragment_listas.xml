@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frame_container_menulistas"
+    tools:context=".menu.ListasFragment"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/imgUsuario"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="150dp"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="142dp"
+            android:elevation="100dp"
+            android:src="@drawable/ic_listas_check"/>
+
+        <TextView
+            android:id="@+id/txtListasChequeo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listas de chequeo"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_below="@+id/imgUsuario"
+            />
+
+        <ScrollView
+            android:id="@+id/scrollListas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/txtListasChequeo"
+            >
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtListasChequeo"
+                android:columnCount="2"
+                android:rowCount="5">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvCargueDescargue"
+                    android:layout_width="150dp"
+                    android:layout_height="210dp"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="95dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icono_cargue_descargue"
+                            app:tint="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingHorizontal="4dp"
+                            android:text="Cargue y descargue"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvMotosierrista"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icono_motosierrista"
+                            app:tint="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:text="Motosierrista"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvDescortezado"
+                    android:layout_width="150dp"
+                    android:layout_height="230dp"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icono_descortezado"
+                            app:tint="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:text="Descortezado"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvEstrobador"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/border_background"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icono_estrobador"
+                            app:tint="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:text="Estrobador"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvOperador"
+                    android:layout_width="150dp"
+                    android:layout_height="230dp"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/border_background"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_operador"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:text="Operador"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvArrieria"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/border_background"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icono_arrieria"
+                            app:tint="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:text="Arriería"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+        </ScrollView>
+
+        <!--android:layout_height="40dp"-->
+        <!--
+        <RelativeLayout
+            android:id="@+id/relativeVacio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparente"
+            android:elevation="8dp"
+            >
+        </RelativeLayout>
+        -->
+
+    </RelativeLayout>
+</FrameLayout>

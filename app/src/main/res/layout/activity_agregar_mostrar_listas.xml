@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Agregar_Mostras_Listas_Cargue.AgregarMostrarListas">
+
+    <!--
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarListaCargue"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/verde_menu"
+        app:title="Listas cargue"
+        app:titleMarginStart="30dp"
+        app:titleTextColor="@color/white"
+        android:theme="?attr/actionBarTheme"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ToolbarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    </androidx.appcompat.widget.Toolbar>
+    app:layout_constraintTop_toBottomOf="@+id/toolbarListaCargue"
+    -->
+
+    <FrameLayout
+        android:id="@+id/fragmentListasCargue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbAgregarListaCargue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icono_agregar_listas_2"
+        android:backgroundTint="@color/verde_oscuro"
+        android:elevation="8dp"
+        app:tint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924"
+        app:shapeAppearanceOverlay="@style/RoundedShape"
+        >
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Llenar_Listas_Cargue.InfoConductorFragment"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreConductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/icono_nombre_conductor"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNombreConductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre Conductor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreConductor"
+                    app:startIconDrawable="@drawable/icono_documento_identificacion"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCedulaConductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Cédula" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtLugarExpedicionConductor"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreConductor"
+                    app:startIconDrawable="@drawable/icono_nombre_zona2"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLugarExpedicionConductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:hint="Expedición"
+                        android:inputType="textMultiLine|textImeMultiLine">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLicConduccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Licencia de\nConducción\nVigente"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLicConduccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiLicConduccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoLicConduccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutPolizaRCE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLicConduccion">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Poliza de RCE\nVigente"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgPolizaRCE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiPoliza"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoPoliza"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutAfiliacionSGSSS"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutPolizaRCE">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Afiliación al SGSSS"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        >
+
+                    </TextView>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutAfiliacionSGSSS">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="EPS"
+                        android:textSize="18dp"
+                        >
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgEPS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiEPS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoEPS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualEPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEPS">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual EPS?"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <!--
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"></View>
+                        -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        >
+
+                        <AutoCompleteTextView
+                            android:id="@+id/atcEPS"
+                            style="@style/Widget.App.PopupMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:hint="EPS"
+                            tools:ignore="Autofill">
+
+                        </AutoCompleteTextView>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualEPS">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="ARL"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgARL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiARL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoARL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualARL"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual ARL?"
+                        android:textSize="18dp"
+                        >
+
+                    </TextView>
+
+                    <!--
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        >
+
+                        <AutoCompleteTextView
+                            android:id="@+id/atcARL"
+                            style="@style/Widget.App.PopupMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ARL"
+                            android:layout_marginStart="20dp"
+                            tools:ignore="Autofill">
+
+                        </AutoCompleteTextView>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutAFP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualARL">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="AFP"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgAFP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiAFP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoAFP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCualAFP"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutAFP">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="0dp"
+                        android:text="Cual AFP?"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <!--
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        >
+
+                        <AutoCompleteTextView
+                            android:id="@+id/atcAFP"
+                            style="@style/Widget.App.PopupMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="AFP"
+                            android:layout_marginStart="20dp"
+                            tools:ignore="Autofill">
+
+                        </AutoCompleteTextView>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCualAFP"
+                    />
+
+                <Button
+                    android:id="@+id/btnAgregarDatosInfoConductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/verde_menu"
+                    android:clickable="true"
+                    android:text="Agregar"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

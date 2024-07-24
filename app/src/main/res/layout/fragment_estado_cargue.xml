@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Llenar_Listas_Cargue.EstadoCargueFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtHoraSalidaSitio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:startIconDrawable="@drawable/reloj"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtHoraSalidaSitio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Hora salida sito"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutMaderaNoSuperaAlturaMampara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHoraSalidaSitio">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="La madera no\nsupera la altura\nde la mampara"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgMaderaNoSuperaAlturaMampara"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiMaderaNoSuperaAlturaMampara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoMaderaNoSuperaAlturaMampara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutMaderaNoSuperaParales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutMaderaNoSuperaAlturaMampara">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="La madera no\nsupera ninguno\nde los parales"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgMaderaNoSuperaParales"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiMaderaNoSuperaParales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoMaderaNoSuperaParales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutNoMaderaAtravieseMampara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutMaderaNoSuperaParales">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="No hay madera\nque atraviese\nla mampara"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgMaderaAtravieseMampara"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiMaderaAtravieseMampara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoMaderaAtravieseMampara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutParalesTienenMismaAltura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutNoMaderaAtravieseMampara">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Los parales tienen\nla misma altura"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgParalesMismaAltura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiParalesMismaAltura"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoParalesMismaAltura"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutNingunaUnidadMaderaSobrepasaParales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutParalesTienenMismaAltura">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Ninguna de las\nunidades de madera\nsobrepasa\nlateralmente los\nparales"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgNingunaUndSobrepasaParales"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiNingunaUndSobrepasaParales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoNingunaUndSobrepasaParales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCadaBancoAseguradoDosEslingas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutNingunaUnidadMaderaSobrepasaParales">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Cada banco está\nasegurado con 2\neslingas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCadaBancoAseguradoEslingas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiCadaBancoAseguradoEslingas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoCadaBancoAseguradoEslingas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCarroceriaParalesBuenEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCadaBancoAseguradoDosEslingas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="La carrocería y los\nparales están en\nbuen estado y sin\nsignos de golpes"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCarroceriaParalesBuenEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiCarroceriaParalesBuenEstado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoCarroceriaParalesBuenEstado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutConductorSalioConCinturon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCarroceriaParalesBuenEstado">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="El conductor del\ncamión salió\ndel lugar\nutilizando\nel cinturón"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgConductorSalioCinturon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiConductorSalioCinturon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoConductorSalioCinturon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutParalesAseguradosEstrobos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutConductorSalioConCinturon">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Los parales \nabatibles se\nencuetran\nasegurados con\nestrobos"
+                        android:textSize="18dp"
+                        >
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgParalesAbatiblesAseguradosEstrobos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiParalesAbatiblesAseguradosEstrobos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoParalesAbatiblesAseguradosEstrobos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutImgCamionLlenar"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutParalesAseguradosEstrobos"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"
+                        android:text="Imagen camión"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBtnsImagenCamion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutImgCamionLlenar"
+                    >
+
+                    <Button
+                        android:id="@+id/btnTomarFotoCamion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tomar foto\ncamión"
+                        android:backgroundTint="@color/verde_oscuro"
+                        android:drawableLeft="@drawable/icono_tomar_foto_32"
+                        android:drawableTint="@color/white"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnSubirFotoCamion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/verde_oscuro"
+                        android:drawableTint="@color/white"
+                        android:drawableLeft="@drawable/baseline_add_photo_alternate_24"
+                        android:text="Subir foto\ncamión"
+                        android:layout_marginLeft="55dp"
+                        android:clickable="true"
+                        >
+                    </Button>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgFotoCamion"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/icono_imagen_foto_camion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBtnsImagenCamion">
+
+                </ImageView>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgFotoCamion">
+
+
+                    <Button
+                        android:id="@+id/btnAgregarActualizarEstadoCargue"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Agregar"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+                    </Button>
+
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

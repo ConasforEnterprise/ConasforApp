@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu.PerfilFragment"
+    android:id="@+id/fragmentoPerfil"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Perfil"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <RelativeLayout
+            android:id="@+id/rLayoutPerfilUsuario"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/img_perfil_usuario"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgFotoPerfil"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginVertical="20dp"
+                android:layout_marginStart="60dp"
+                android:src="@drawable/icono_usuario_supervisor_listas"
+                tools:layout_editor_absoluteY="73dp"/>
+
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ftbEditarPerfilSupervisor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="212dp"
+            android:background="@color/verde_menu"
+            android:backgroundTint="@color/white"
+            android:elevation="8dp"
+            android:src="@drawable/baseline_edit_24"
+            app:backgroundTint="@color/verde_oscuro"
+            app:borderWidth="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedShape"
+            app:strokeColor="@color/verde_oscuro"
+            app:useCompatPadding="true">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.265"
+            app:layout_constraintStart_toEndOf="@+id/rLayoutPerfilUsuario"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+
+            <TextView
+                android:id="@+id/txtNombreUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="0dp"
+                android:layout_marginTop="20dp"
+                android:text="Nombre"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtCargoUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Cargo"
+                android:textSize="18dp">
+            </TextView>
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rLayoutPerfilUsuario">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutFinca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <TextView
+                        android:id="@+id/txtTagFinca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="70dp"
+                        android:text="Finca"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icono_nombre_finca2"
+                            android:tint="@color/verde_oscuro"
+                            tools:ignore="UseAppTint"/>
+
+                        <TextView
+                            android:id="@+id/txtFincaUsuario"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Finca"
+                            android:textSize="18dp"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/txtTagFinca"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="40dp"
+                        android:background="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlayoutCedula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayoutFinca">
+
+                    <TextView
+                        android:id="@+id/txtTagNumeroCedula"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="70dp"
+                        android:text="Número de cédula"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icono_documento_identificacion"
+                            android:tint="@color/verde_oscuro"
+                            tools:ignore="UseAppTint"/>
+
+                        <TextView
+                            android:id="@+id/txtCedulaUsuario"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Número de cedula"
+                            android:textSize="18dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/txtTagNumeroCedula"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="40dp"
+                        android:background="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlayoutCedula">
+
+                    <TextView
+                        android:id="@+id/txtTagCorreoElectronico"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="70dp"
+                        android:text="Correo electrónico"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icono_correo"
+                            android:tint="@color/verde_oscuro"
+                            tools:ignore="UseAppTint">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/txtCorreoUsuario"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Correo"
+                            android:textSize="18dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/txtTagCorreoElectronico"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="40dp"
+                        android:background="@android:color/darker_gray" />
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

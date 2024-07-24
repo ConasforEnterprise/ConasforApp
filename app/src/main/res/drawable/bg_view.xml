@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:bottomRightRadius="75dp"
+        android:bottomLeftRadius="75dp"
+        >
+    </corners>
+
+    <solid android:color="@color/verde_menu"
+        >
+    </solid>
+</shape>
+
+
+
+<!--
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:bottomRightRadius="75dp"
+                android:bottomLeftRadius="75dp"/>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/fondo_naturaleza"/>
+</layer-list>
+-->

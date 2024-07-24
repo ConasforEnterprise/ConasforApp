@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuarios.Supabase.RegistroUsuarios">
+
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_registro_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="140dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="Registro"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgFotoUusuarioRegistro2"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="36dp"
+            android:src="@drawable/icono_foto_usuario">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAgregarFotoUsuarioRegistro2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="119dp"
+            android:layout_marginBottom="1dp"
+            android:backgroundTint="@color/verde_oscuro"
+            android:src="@drawable/icono_agregar_listas_2"
+            app:shapeAppearanceOverlay="@style/RoundedShape"
+            app:tint="@null">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:startIconDrawable="@drawable/icono_nombre_apellido"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNombreRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre y apellidos"
+
+            >
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        android:hint="Cargo"
+        app:hintTextColor="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:startIconDrawable="@drawable/icono_cargo2"
+        app:startIconTint="@color/verde_menu">
+
+        <AutoCompleteTextView
+            android:id="@+id/atcCargoRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="none"
+            style="@style/Widget.App.PopupMenu"
+            >
+
+        </AutoCompleteTextView>
+
+        <!--
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCargoRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cargo"
+            />
+            -->
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+        app:startIconDrawable="@drawable/icono_documento_identificacion"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCedulaRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de cédula" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtFincaRegistro2"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+        app:startIconDrawable="@drawable/icono_nombre_finca2"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtFincaRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Finca"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtCorreoRegistro2"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFincaRegistro2"
+        app:startIconDrawable="@drawable/icono_correo"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCorreoRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtContrasenaRegistro2"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:hintTextColor="@color/verde_oscuro"
+        app:endIconMode="password_toggle"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleDrawable="@drawable/icono_visible_verde"
+        app:passwordToggleTintMode="@color/verde_oscuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreoRegistro2"
+        app:startIconDrawable="@drawable/icono_contrasena"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtContrasenaRegistro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasenaRegistro2">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde_menu"
+            android:buttonTint="@color/verde_menu">
+
+        </CheckBox>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acepta los términos y condiciones">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegistroUsuario2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/verde_menu"
+        android:text="Registro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+        >
+    </Button>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Terminos y condiciones\ny política de privacidad de Conasfor"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistroUsuario2">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

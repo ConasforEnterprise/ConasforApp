@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Editar_Listas_Cargue.EditarInfoLugarCargue">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/bSheetInfoLugarCarguePadre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded"
+            app:behavior_hideable="true"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/imgInfoLugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_remove_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white"/>
+
+                <TextView
+                    android:id="@+id/txtNumItemInfoLugarCargueEditar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="40dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:pressedTranslationZ="8dp"
+                    />
+
+                <!--
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabItemListaCargueDescargueEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:elevation="8dp"
+                    android:src="@drawable/estado_fab_listas_chequeo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:pressedTranslationZ="8dp"
+                    app:shapeAppearanceOverlay="@style/RoundedShape"
+                    app:tint="@null"
+                    />
+                    -->
+
+                <TextView
+                    android:id="@+id/txtEncabezadoListaCargueDescargueEdit"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="85dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Información del lugar donde se cargará"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/txtNumItemInfoLugarCargueEditar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="28dp"
+                    android:background="@color/gray"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtEncabezadoListaCargueDescargueEdit"/>
+
+                <!--
+                <ImageButton
+                    android:id="@+id/imgCerrarDesplegableInfoLugarCargue"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="340dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="36dp"
+                    android:background="@color/transparente"
+                    android:src="@drawable/icono_desplegar_abajo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </ImageButton>
+                -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/bSheetInfoLugarCargue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:elevation="15dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtFechaEditar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconDrawable="@drawable/calendario"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:hintTextColor="@color/verde_oscuro"
+                        app:boxStrokeErrorColor="@color/verde_menu"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        style="@style/TextInputLayoutRounded"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtFechaEditar"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Fecha"
+                            android:enabled="false"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtHoraLlegadaEditar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconDrawable="@drawable/reloj"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:boxStrokeErrorColor="@color/verde_menu"
+                        app:hintTextColor="@color/verde_oscuro"
+                        style="@style/TextInputLayoutRounded"
+                        >
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtHoraLlegadaEditar"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Hora entrada" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtTipoCargueEditar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:hint="Tipo de cargue"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtHoraLlegadaEditar"
+                        app:startIconDrawable="@drawable/icono_tipo_cargue2"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:boxStrokeErrorColor="@color/verde_menu"
+                        app:hintTextColor="@color/verde_oscuro"
+                        >
+                        <AutoCompleteTextView
+                            android:id="@+id/edtTipoCargueEditar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:inputType="none"
+                            style="@style/Widget.App.PopupMenu"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtNombreZonaEditar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Nombre de la zona"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTipoCargueEditar"
+                        app:startIconDrawable="@drawable/icono_nombre_zona2"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:hintTextColor="@color/verde_oscuro"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        >
+
+                        <AutoCompleteTextView
+                            android:id="@+id/edtNombreZonaEditar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            style="@style/Widget.App.PopupMenu"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtNombreNucleoEditar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Nombre del núcleo"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:startIconDrawable="@drawable/icono_nombre_nucleo"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNombreZonaEditar"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:hintTextColor="@color/verde_oscuro"
+                        >
+                        <AutoCompleteTextView
+                            android:id="@+id/edtNombreNucleoEditar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            style="@style/Widget.App.PopupMenu"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtNombreFincaEditar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Nombre de la finca"
+                        app:startIconTint="@color/verde_oscuro"
+                        app:startIconDrawable="@drawable/icono_nombre_finca2"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNombreNucleoEditar"
+                        app:boxStrokeColor="@color/verde_oscuro"
+                        app:hintTextColor="@color/verde_oscuro"
+                        >
+
+                        <AutoCompleteTextView
+                            android:id="@+id/edtNombreFincaEditar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            style="@style/Widget.App.PopupMenu"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnActualizarDatosCargueDescargueEditar"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:backgroundTint="@color/verde_menu"
+                        android:text="Editar"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNombreFincaEditar"
+                        app:layout_constraintVertical_bias="0.941"/>
+                    <!--
+                    <Button
+                        android:id="@+id/btnExportarDatosInfoLugarCargue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exportar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnActualizarDatosCargueDescargueEditar">
+
+                    </Button>
+                    -->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

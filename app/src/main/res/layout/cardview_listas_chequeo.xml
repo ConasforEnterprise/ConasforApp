@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:id="@+id/cardViewListaCreada"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_card_mis_listas"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <!--
+                <LinearLayout
+                    android:id="@+id/lLayoutNumLista"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.883"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtTagNumeroListaCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lista # : "
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/txtNumeroListaCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+                    </TextView>
+                </LinearLayout>
+                -->
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutFechaCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtFechaListaCargueCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:layout_marginTop="60dp"
+                        android:elevation="15dp"
+                        android:text="Valor fecha"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="12sp">
+
+                    </TextView>
+
+                    <ImageView
+                        android:id="@+id/imgIconoCalendario"
+                        android:layout_width="100dp"
+                        android:layout_height="128dp"
+                        android:src="@drawable/icono_calendario_cardview7"
+
+                        >
+                    </ImageView>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/lLayoutFechaCardView"
+                    android:layout_toRightOf="@+id/lLayoutFechaCardView"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/lLayoutFechaCardView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagConductorCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conductor: "
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtNombreConductorCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="0dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="18dp">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Placa : "
+                            android:textColor="@color/black"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtPlacaVehiculoCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/black">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+                    <!--
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+
+
+                       <TextView
+                           android:id="@+id/txtTagFincaCard"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Finca: "
+                           android:textColor="@color/white"
+                           android:textStyle="bold"
+                           >
+                       </TextView>
+
+
+                       <TextView
+                           android:id="@+id/txtNombreFincaCard"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:paddingHorizontal="0dp"
+                           android:text=""
+                           android:textColor="@color/white">
+
+                       </TextView>
+
+                   </LinearLayout>
+                    -->
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/txtTagHoraEntradaCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hora entrada camión: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtHoraEntradaCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/black">
+
+                        </TextView>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTagHoraSalidaCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hora salida camión: "
+                            android:textColor="@color/black"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtHoraSalidaCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/black">
+
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.250"
+                    app:layout_constraintStart_toEndOf="@+id/lLayoutFechaCardView">
+
+                    <TextView
+                        android:id="@+id/txtTagEstadoPaseoCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Estado lista : "
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.07"
+                        app:layout_constraintStart_toEndOf="@+id/lLayoutFechaCardView"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/txtEstadoLista"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="18sp">
+                    </TextView>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

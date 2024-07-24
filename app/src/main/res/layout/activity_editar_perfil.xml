@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Usuarios.EditarPerfil">
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/img_perfil_usuario"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rLayoutImagenUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgFotoMascotaEditar"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icono_usuario_supervisor"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fBSubirFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="90dp"
+            android:backgroundTint="@color/verde_oscuro"
+            android:src="@drawable/baseline_add_photo_alternate_24"
+            app:shapeAppearanceOverlay="@style/RoundedShape"
+            app:tint="@null" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Editar perfil"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtNombreEditarPerfil"
+        style="@style/TextInputLayoutRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:boxStrokeColor="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rLayoutImagenUsuario"
+        app:startIconDrawable="@drawable/icono_nombre_apellido"
+        app:startIconTint="@color/verde_menu">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNombreUsuarioEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre y apellidos" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtCargoEditarPerfil"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp"
+        app:startIconDrawable="@drawable/icono_cargo2"
+        app:startIconTint="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreEditarPerfil"
+        style="@style/TextInputLayoutRounded"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCargoUsuarioEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cargo" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtFincaEditarPerfil"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp"
+        app:startIconDrawable="@drawable/icono_nombre_finca2"
+        app:startIconTint="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCargoEditarPerfil"
+        style="@style/TextInputLayoutRounded"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtFincaEditarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Finca"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtCedulaEditarPerfil"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="20dp"
+        app:startIconDrawable="@drawable/icono_documento_identificacion"
+        app:startIconTint="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFincaEditarPerfil"
+        style="@style/TextInputLayoutRounded"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCedulaUsuarioEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de cédula" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtCorreoEditarPerfil"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp"
+        app:startIconDrawable="@drawable/icono_correo"
+        app:startIconTint="@color/verde_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCedulaEditarPerfil"
+        style="@style/TextInputLayoutRounded"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCorreoUsuarioEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnGuardarEditarPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/verde_menu"
+        android:text="Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreoEditarPerfil"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

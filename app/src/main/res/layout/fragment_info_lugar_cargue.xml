@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Llenar_Listas_Cargue.InfoLugarCargueFragment"
+    android:id="@+id/fgmInfoLugarCargue"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/calendario"
+                app:startIconTint="@color/verde_oscuro"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:hintTextColor="@color/verde_oscuro"
+                app:boxStrokeErrorColor="@color/verde_menu"
+                android:textCursorDrawable="@drawable/cursor_color"
+                style="@style/TextInputLayoutRounded"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtFecha"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Fecha"
+
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtHoraLlegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/reloj"
+                app:startIconTint="@color/verde_oscuro"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:boxStrokeErrorColor="@color/verde_menu"
+                app:hintTextColor="@color/verde_oscuro"
+                style="@style/TextInputLayoutRounded"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtHoraLlegada"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Hora entrada" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtTipoCargue"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:hint="Tipo de cargue"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:boxBackgroundMode="outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtHoraLlegada"
+                app:startIconDrawable="@drawable/icono_tipo_cargue2"
+                app:startIconTint="@color/verde_oscuro"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:boxStrokeErrorColor="@color/verde_menu"
+                app:hintTextColor="@color/verde_oscuro"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtTipoCargue"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    style="@style/Widget.App.PopupMenu"
+                    >
+
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtNombreZona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Nombre de la zona"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:startIconTint="@color/verde_oscuro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTipoCargue"
+                app:startIconDrawable="@drawable/icono_nombre_zona2"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:hintTextColor="@color/verde_oscuro"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtNombreZona"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    style="@style/Widget.App.PopupMenu"
+                    >
+
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtNombreNucleo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Nombre del núcleo"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:boxBackgroundMode="outline"
+                app:startIconDrawable="@drawable/icono_nombre_nucleo"
+                app:startIconTint="@color/verde_oscuro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombreZona"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:hintTextColor="@color/verde_oscuro"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtNombreNucleo"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    style="@style/Widget.App.PopupMenu"
+                    >
+
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtNombreFinca"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Nombre de la finca"
+                app:startIconTint="@color/verde_oscuro"
+                app:startIconDrawable="@drawable/icono_nombre_finca2"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:boxBackgroundMode="outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombreNucleo"
+                app:boxStrokeColor="@color/verde_oscuro"
+                app:hintTextColor="@color/verde_oscuro"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtNombreFinca"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    style="@style/Widget.App.PopupMenu"
+                    >
+
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnChequeadoItem1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/verde_menu"
+                android:text="Agregar"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombreFinca"
+                app:layout_constraintVertical_bias="0.941">
+
+            </Button>
+
+            <!--
+            <Button
+                android:id="@+id/btnEditarDatosInfoLugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombreFinca">
+
+            </Button>
+            -->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+</FrameLayout>

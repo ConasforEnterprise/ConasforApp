@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_oscuro"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Leer_Listas_Cargue.LeerDatosListaCargueDescargueFragment"
+    >
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/verde_oscuro"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:id="@+id/fbAT"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ScrollView
+            android:id="@+id/scrollViewFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:backgroundTint="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rLayourDatosLista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background ="@color/verde_oscuro"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:text="Lista de chequeo cargue y descargue"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+
+                        >
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lista # :"
+                            android:layout_marginTop="60dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="20dp"
+                            >
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtLeerNumLista"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:layout_marginTop="60dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            >
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Supervisor : "
+                            android:layout_marginTop="90dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="20dp"
+                            >
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtLeerSupervisor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="nombre"
+                            android:layout_marginTop="90dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            >
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Finca : "
+                            android:layout_marginTop="120dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="20dp"
+                            >
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtLeerFinca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="finca"
+                            android:layout_marginTop="120dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            >
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha Creación :"
+                            android:layout_marginTop="150dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="20dp"
+                            >
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/txtLeerFechaCreacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="fecha"
+                            android:layout_marginTop="150dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            >
+
+                        </TextView>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    tools:layout_editor_absoluteX="-1dp"
+                    />
+
+                    <LinearLayout
+                        android:id="@+id/fragmentContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        >
+
+                    </LinearLayout>
+
+                <!--
+
+                <FrameLayout
+                    android:id="@+id/frameItem1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/verde_oscuro"
+                    app:behavior_hideable="true"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/fabLeerItem1CargueDescargue"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:elevation="8dp"
+                            android:src="@drawable/estado_fab_listas_chequeo"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:pressedTranslationZ="8dp"
+                            app:shapeAppearanceOverlay="@style/RoundedShape"
+                            app:tint="@color/white">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/txtEncabezadoCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="85dp"
+                            android:layout_marginStart="12dp"
+                            android:text="Información del lugar donde se cargará"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.358"
+                            app:layout_constraintStart_toEndOf="@+id/fabLeerItem1CargueDescargue"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.8">
+
+                        </TextView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameInfoCargueDescargueLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="100dp"
+                        android:background="@color/white"
+                        android:elevation="15dp"
+                        >
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/frameItem2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/verde_oscuro"
+                    app:behavior_hideable="true"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabLeerItem2CargueDescargue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/white"
+                            android:elevation="8dp"
+                            android:src="@drawable/icono_num_dos_listas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:pressedTranslationZ="8dp"
+                            app:shapeAppearanceOverlay="@style/RoundedShape"
+                            app:tint="@null">
+
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                        <TextView
+                            android:id="@+id/txtEncabezadoListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="85dp"
+                            android:layout_marginStart="12dp"
+                            android:text="Información del conductor"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.358"
+                            app:layout_constraintStart_toEndOf="@+id/fabLeerItem2CargueDescargue"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.8">
+
+                        </TextView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameInfoConductorLeer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="100dp"
+                        android:background="@drawable/rounded_blanco"
+                        android:backgroundTint="@color/white"
+                        android:elevation="15dp"
+                        >
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameItem3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/verde_oscuro"
+                    app:behavior_hideable="true"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabItem3ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/white"
+                            android:elevation="8dp"
+                            android:src="@drawable/icono_num_tres_listas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:pressedTranslationZ="8dp"
+                            app:shapeAppearanceOverlay="@style/RoundedShape"
+                            app:tint="@null">
+
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                        <TextView
+                            android:id="@+id/txtEncabezado3ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="85dp"
+                            android:layout_marginStart="12dp"
+                            android:text="Información del vehículo"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.358"
+                            app:layout_constraintStart_toEndOf="@+id/fabItem3ListaCargueDescargueLeer"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.8">
+
+                        </TextView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameInfoVehiculoLeer3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="100dp"
+                        android:background="@drawable/rounded_blanco"
+                        android:backgroundTint="@color/white"
+                        android:elevation="15dp"
+                        >
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameItem4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/verde_oscuro"
+                    app:behavior_hideable="true"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabItem4ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/white"
+                            android:elevation="8dp"
+                            android:src="@drawable/icono_num_cuatro_listas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:pressedTranslationZ="8dp"
+                            app:shapeAppearanceOverlay="@style/RoundedShape"
+                            app:tint="@null">
+
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                        <TextView
+                            android:id="@+id/txtEncabezado4ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="85dp"
+                            android:layout_marginStart="12dp"
+                            android:text="Estado de cargue"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.358"
+                            app:layout_constraintStart_toEndOf="@+id/fabItem4ListaCargueDescargueLeer"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.8">
+
+                        </TextView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameEstadoCargueLeer4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="100dp"
+                        android:background="@drawable/rounded_blanco"
+                        android:backgroundTint="@color/white"
+                        android:elevation="15dp"
+                        >
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameItem5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/verde_oscuro"
+                    app:behavior_hideable="true"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabItem5ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@color/white"
+                            android:elevation="8dp"
+                            android:src="@drawable/icono_num_cinco_listas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:pressedTranslationZ="8dp"
+                            app:shapeAppearanceOverlay="@style/RoundedShape"
+                            app:tint="@null">
+
+                        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                        <TextView
+                            android:id="@+id/txtEncabezado5ListaCargueDescargueLeer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="85dp"
+                            android:layout_marginStart="12dp"
+                            android:text="Firmas"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.358"
+                            app:layout_constraintStart_toEndOf="@+id/fabItem5ListaCargueDescargueLeer"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.8">
+
+                        </TextView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frameFirmasLeer5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="100dp"
+                        android:background="@drawable/rounded_blanco"
+                        android:backgroundTint="@color/white"
+                        android:elevation="15dp"
+                        >
+
+                    </FrameLayout>
+                </FrameLayout>
+                 -->
+
+                <Button
+                    android:id="@+id/btnAceptarLeerListas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aceptar"
+                    android:textColor="@color/verde_oscuro"
+                    android:backgroundTint="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    >
+                </Button>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

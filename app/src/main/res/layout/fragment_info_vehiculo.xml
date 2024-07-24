@@ -1,0 +1,1720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Llenar_Listas_Cargue.InfoVehiculoFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtPlacaVehiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconDrawable="@drawable/icono_placa"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPlaca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Placa"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtTipoVehiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPlacaVehiculo"
+                    app:startIconDrawable="@drawable/icono_tipo_vehiculo"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/edtVehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Vehículo"
+                        style="@style/Widget.App.PopupMenu"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTipoVehiculo"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Documentos vehículo"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        >
+
+                    </TextView>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutTarjetaPropiedad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Tarjeta de\npropiedad"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgTarjetaPropiedad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiTarjetaPropiedad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoTarjetaPropiedad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutSOAT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutTarjetaPropiedad">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="SOAT Vigente"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgSOATVigente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        android:background="@drawable/color_estado_radio_button"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbSiSOATVigente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoSOATVigente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutTecnicomecanica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutSOAT">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Revisión\ntecnicomecánica"
+                        android:textSize="18dp"
+                        >
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgRevisionTecnicomecanica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbSiRevisionTecnicomecanica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="si"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbNoRevisionTecnicomecanica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="no"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutTecnicomecanica"
+                    tools:layout_editor_absoluteX="0dp" />
+
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutEstadoLuces"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="Estado luces"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLucesAltas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEstadoLuces">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Altas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLucesAltas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLucesAltas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalLucesAltas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBajas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLucesAltas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Bajas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLucesBajas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLucesBajas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalLucesBajas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDireccionales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBajas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Direccionales"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDireccionales"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDireccionales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalDireccionales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutSonidoReversa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDireccionales">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Sonido reversa"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgSonidoReversa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienSonidoReversa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalSonidoReversa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutReversa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutSonidoReversa">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Reversa"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgReversa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienReversa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalReversa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutReversa">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Stop"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgStop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienStop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalStop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutStop"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutElementosProtecciónPrevencion"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Elementos de prevención y protección"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutRetrovisores"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutElementosProtecciónPrevencion">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Retrovisores"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgRetrovisores"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienRetrovisores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalRetrovisores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutPlumillas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutRetrovisores">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Plumillas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgPlumillas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienPlumillas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalPlumillas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEstadoPanoramicos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutPlumillas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Estado\npanorámicos"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgEstadoPanoramicos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienEstadoPanoramicos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalEstadoPanoramicos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutEspejos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEstadoPanoramicos">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Espejos"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgEspejos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienEspejos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalEspejos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBocina"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutEspejos">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Bocina"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBocina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbBienBocina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalBocina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCinturon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBocina">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Cinturon"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCinturon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCinturon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalCinturon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutFreno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCinturon">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Freno"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgFreno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienFreno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalFreno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutLlantas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutFreno">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Llantas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgLlantas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienLlantas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalLlantas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBotiquin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutLlantas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Botiquin"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBotiquin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienBotiquin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalBotiquin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutExtintorABC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBotiquin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Extintor ABC"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgExtintorABC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienExtintorABC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalExtintorABC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutBotas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutExtintorABC">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Botas"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgBotas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienBotas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalBotas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutChaleco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutBotas">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Chaleco"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgChaleco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienChaleco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalChaleco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCasco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutChaleco">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Casco"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCasco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCasco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalCasco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCasco" />
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutCarroceriaAccesorios"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Carrocería y accesorios"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutCarroceria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCarroceriaAccesorios">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Carrocería"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgCarroceria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienCarroceria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalCarroceria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDosEslingasBanco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutCarroceria">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dos eslingas\npor banco"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDosEslingasBanco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDosEslingasBanco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalDosEslingasBanco"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutDosConosReflectivos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDosEslingasBanco">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dos conos\nreflectivos"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgDosConosReflectivos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienDosConosReflectivos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalDosConosReflectivos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lLayoutParalesIgualLongitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDosConosReflectivos">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Parales\n(igual longitud)"
+                        android:textSize="18dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rdgParalesIgualLongitud"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbBienParalesIgualLongitud"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="40dp"
+                            android:text="bien"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbMalParalesIgualLongitud"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mal"
+                            android:textSize="18dp"
+                            app:buttonTint="@color/verde_oscuro"
+                            >
+
+                        </RadioButton>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutParalesIgualLongitud">
+
+                </View>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutObservaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view6">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Observaciones"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtObservaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/TextInputLayoutRounded"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutObservaciones">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtObservacionesInfoVehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Observaciones">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnAgregarDatosInfoVehiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Agregar"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/verde_menu"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtObservaciones"
+                    app:layout_constraintVertical_bias="1.0">
+
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

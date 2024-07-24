@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.CRUD_Listas_Cargue.Agregar_Mostras_Listas_Cargue.ListasCargueAministrador">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarListaCargueAdmin2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ToolbarTheme"
+            app:title="Listas cargue"
+            app:titleMarginStart="30dp"
+            app:titleTextColor="@color/black"
+            >
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/lLayoutViewStubLeer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarListaCargueAdmin2"
+            >
+
+            <ViewStub
+                android:id="@+id/chipGroupStubLeer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout="@layout/chip_layout"
+                />
+        </LinearLayout>
+        <!--
+                   app:layout_constraintTop_toBottomOf="@+id/lLayoutViewStubCrear">
+                   -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewListas2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparente"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lLayoutViewStubLeer2">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rVListasCargueLeer2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="100dp"
+                />
+
+            <ProgressBar
+                android:id="@+id/progressBarListasAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/verde_menu"
+
+                />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

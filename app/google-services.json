@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "354455488689",
+    "project_id": "conasforapp-8ee0d",
+    "storage_bucket": "conasforapp-8ee0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354455488689:android:60f3176a38c2342aa43a90",
+        "android_client_info": {
+          "package_name": "com.example.conasforapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3ME-TJLCY7CRnpDu0384YJi0ujVXybik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

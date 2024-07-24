@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".lista_chequeo_cargue_descargue.Llenar_Listas_Cargue.FirmasNombresCargueDescargue">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutSupervisor"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Supervisor"
+                        android:textSize="18dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_desplegar_abajo"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreSupervisor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutSupervisor"
+                    app:startIconDrawable="@drawable/icono_supervisor_32"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/atcNombreSupervisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre supervisor"
+                        style="@style/Widget.App.PopupMenu"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlOpcFirmaSupervisor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreSupervisor"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageButton
+                            android:id="@+id/btnLimpiarFirmaSupervisor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="240dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/transparente"
+                            android:clickable="true"
+                            android:src="@drawable/icono_limpiar_firma2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/btnAceptarFirmaSupervisor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:clickable="true"
+                            android:background="@color/transparente"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/icono_aceptar_firma"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSupervisor"
+                    android:layout_width="380dp"
+                    android:layout_height="300dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlOpcFirmaSupervisor">
+
+                    <com.github.gcacace.signaturepad.views.SignaturePad
+                        android:id="@+id/sPadFirmaSupervisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="40dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_centerInParent="true"
+                        tools:ignore="MissingClass"
+                        android:visibility="visible"
+                        />
+
+                    <View
+                        android:id="@+id/viewFirmaSupervisor"
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/sPadFirmaSupervisor"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sPadFirmaSupervisor" />
+
+                    <TextView
+                        android:id="@+id/txtFirmaSupervisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Firma supervisor"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirmaSupervisor"
+                        android:layout_below="@+id/viewFirmaSupervisor"
+                        >
+
+                    </TextView>
+
+                    <FrameLayout
+                        android:id="@+id/frameFirmaSupervisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_firma"
+                        android:layout_marginTop="10dp"
+                        >
+
+                        <Button
+                            android:id="@+id/btnFirmarSupervisor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/verde_oscuro"
+                            android:text="Firmar">
+
+                        </Button>
+
+                    </FrameLayout>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlSupervisor">
+
+                </View>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutDespachador"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view11">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Despachador"
+                        android:textSize="18dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_desplegar_abajo"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        >
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreDespachador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutDespachador"
+                    app:startIconDrawable="@drawable/icono_supervisor_32"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    >
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre despachador"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlOpcFirmaDespachador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreDespachador"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageButton
+                            android:id="@+id/btnLimpiarFirmaDespachador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="240dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/transparente"
+                            android:clickable="true"
+                            android:src="@drawable/icono_limpiar_firma2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/verde_oscuro">
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/btnAceptarFirmaDespachador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:background="@color/transparente"
+                            android:clickable="true"
+                            android:src="@drawable/icono_aceptar_firma"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/verde_oscuro">
+
+                        </ImageButton>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlDespachador"
+                    android:layout_width="380dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rlOpcFirmaDespachador"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <com.github.gcacace.signaturepad.views.SignaturePad
+                        android:id="@+id/sPadFirmaDespachador"
+                        android:layout_width="300dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        tools:ignore="MissingClass"
+                        />
+
+                    <View
+                        android:id="@+id/viewFirmaDespachador"
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/sPadFirmaDespachador"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sPadFirmaDespachador" />
+
+                    <TextView
+                        android:id="@+id/txtFirmaDespachador"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Firma supervisor"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirmaDespachador"
+                        android:layout_below ="@+id/viewFirmaDespachador"
+
+                        >
+
+                    </TextView>
+
+                    <FrameLayout
+                        android:id="@+id/frameFirmaDespachador"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card_firma">
+
+                        <Button
+                            android:id="@+id/btnFirmarDespachador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/verde_oscuro"
+                            android:text="Firmar">
+
+                        </Button>
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlDespachador">
+                </View>
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutConductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view12">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Conductor"
+                        android:textSize="18dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/icono_desplegar_abajo">
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreConductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutConductor"
+                    app:startIconDrawable="@drawable/icono_supervisor_32"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    >
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre conductor"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlOpcFirmaConductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreConductor"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageButton
+                            android:id="@+id/btnLimpiarFirmaConductor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="240dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/transparente"
+                            android:clickable="true"
+                            android:src="@drawable/icono_limpiar_firma2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/btnAceptarFirmaConductor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:clickable="true"
+                            android:background="@color/transparente"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/icono_aceptar_firma"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlConductor"
+                    android:layout_width="380dp"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rlOpcFirmaConductor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    tools:ignore="MissingConstraints"
+                    >
+
+                    <com.github.gcacace.signaturepad.views.SignaturePad
+                        android:id="@+id/sPadFirmaConductor"
+                        android:layout_width="300dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingClass"
+                        />
+
+                    <View
+                        android:id="@+id/viewFirmaConductor"
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/sPadFirmaConductor"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sPadFirmaConductor" />
+
+                    <TextView
+                        android:id="@+id/txtFirmaConductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Firma conductor"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirmaConductor"
+                        android:layout_below="@id/viewFirmaConductor"
+                        >
+
+                    </TextView>
+
+                    <FrameLayout
+                        android:id="@+id/frameFirmaConductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card_firma">
+
+                        <Button
+                            android:id="@+id/btnFirmarConductor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/verde_oscuro"
+                            android:text="Firmar">
+
+                        </Button>
+
+                    </FrameLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view13"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlConductor">
+                </View>
+
+
+                <RelativeLayout
+                    android:id="@+id/lLayoutOperadorCargue"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/contorno_subtitulo"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="Operador de cargue"
+                        android:textSize="18dp"
+                        android:layout_centerVertical="true"
+                        >
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/icono_desplegar_abajo">
+
+                    </ImageView>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtNombreOperadorCargue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lLayoutOperadorCargue"
+                    app:startIconDrawable="@drawable/icono_supervisor_32"
+                    app:startIconTint="@color/verde_oscuro"
+                    app:boxStrokeColor="@color/verde_oscuro"
+                    app:hintTextColor="@color/verde_oscuro"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    >
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nombre operador de cargue"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlOpcFirmaOperador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNombreOperadorCargue"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <ImageButton
+                            android:id="@+id/btnLimpiarFirmaOperador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="240dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@color/transparente"
+                            android:clickable="true"
+                            android:src="@drawable/icono_limpiar_firma2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/btnAceptarFirmaOperador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:clickable="true"
+                            android:background="@color/transparente"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/icono_aceptar_firma"
+                            app:tint="@color/verde_oscuro"
+                            >
+
+                        </ImageButton>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlOperador"
+                    android:layout_width="380dp"
+                    android:layout_height="300dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rlOpcFirmaOperador"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints"
+                    >
+
+                    <com.github.gcacace.signaturepad.views.SignaturePad
+                        android:id="@+id/sPadFirmaOperadorCargue"
+                        android:layout_width="300dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingClass"
+                        />
+
+                    <View
+                        android:id="@+id/viewFirmaOperadorCargue"
+                        android:layout_width="300dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/sPadFirmaOperadorCargue"
+                        android:layout_marginHorizontal="70dp"
+                        android:layout_marginVertical="0dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.495"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sPadFirmaOperadorCargue" />
+
+                    <TextView
+                        android:id="@+id/txtFirmaOperadorCargue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Firma operador cargue"
+                        android:gravity="center_horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirmaOperadorCargue"
+                        android:layout_below="@+id/viewFirmaOperadorCargue"
+                        >
+
+                    </TextView>
+
+                    <FrameLayout
+                        android:id="@+id/frameFirmaOperador"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card_firma">
+
+                        <Button
+                            android:id="@+id/btnFirmarOperador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/verde_oscuro"
+                            android:text="Firmar">
+
+                        </Button>
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+
+
+                <View
+                    android:id="@+id/view14"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlOperador"
+                    >
+                </View>
+
+                <ImageButton
+                    android:id="@+id/btnAgregarFirmas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparente"
+                    android:src="@drawable/icono_chequeado_correctamente"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view14"
+                    >
+            </ImageButton>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
