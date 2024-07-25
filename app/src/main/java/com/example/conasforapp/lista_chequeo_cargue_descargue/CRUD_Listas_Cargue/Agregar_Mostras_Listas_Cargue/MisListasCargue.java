@@ -229,6 +229,8 @@ public class MisListasCargue extends Fragment {
     //------------------------------------------ OBTENER LISTAS USUARIO ----------------------------------------------//
 
                         //*********** Método para obtener listas iniciales paginadas***********//
+
+    /*
     private void listasUsuariosNoAdmin(String cargo, String idUsuario) {
         listasCargue.clear();
         Query query = db.collection(pathLista)
@@ -252,6 +254,7 @@ public class MisListasCargue extends Fragment {
                     listasCargue.add(listasCargueModel);
                     estadoLista(listasCargueModel);
                 }
+
                 ordenarListaPorFechaHoraDescendente(listasCargue);
                 listasCargueDescargueRecycler = new AdaptadorMisListasCargue(getContext(), listasCargue);
                 listasCargueDescargueRecycler.setListas(listasCargue);
@@ -266,6 +269,96 @@ public class MisListasCargue extends Fragment {
                     Log.d("DEBUG", "firstVisible set to: " + firstVisible.getId());
                 } else {
                     Log.d("DEBUG", "No documents found in initial query");
+                }
+
+                RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                        super.onScrollStateChanged(recyclerView, newState);
+
+                        if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                            isScrolling = true;
+                        }
+                    }
+                };
+                recyclerViewListas.addOnScrollListener(onScrollListener);
+            }
+        });
+    }
+
+     */
+
+    private void listasUsuariosNoAdmin(String cargo, String idUsuario) {
+        listasCargue.clear();
+
+        Query query = db.collection(pathLista)
+                .whereEqualTo("id_usuario", idUsuario)
+                .orderBy("timestamp", Query.Direction.DESCENDING)
+                .limit(5);
+
+        listenerRegistration = query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.e("DEBUG", "Error getting documents: ", error);
+                    Toast.makeText(getContext(), "Falló al obtener listas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (value == null || value.isEmpty()) {
+                    Log.d("DEBUG", "No documents found");
+                    return;
+                }
+
+                // Verifica si todos los documentos tienen un timestamp confirmado
+                boolean allDocumentsHaveTimestamp = true;
+                for (DocumentSnapshot doc : value.getDocuments()) {
+                    if (doc.get("timestamp") == null) {
+                        allDocumentsHaveTimestamp = false;
+                        break;
+                    }
+                }
+
+                // Si todos los documentos tienen timestamp, procede normalmente
+                if (allDocumentsHaveTimestamp) {
+                    listasCargue.clear();
+                    for (DocumentSnapshot doc : value.getDocuments()) {
+                        ListasCargueModel listasCargueModel = doc.toObject(ListasCargueModel.class);
+                        listasCargueModel.setId_lista(doc.getId());
+                        listasCargue.add(listasCargueModel);
+                        estadoLista(listasCargueModel);
+                    }
+
+                    ordenarListaPorFechaHoraDescendente(listasCargue);
+                    listasCargueDescargueRecycler = new AdaptadorMisListasCargue(getContext(), listasCargue);
+                    listasCargueDescargueRecycler.setListas(listasCargue);
+                    recyclerViewListas.setAdapter(listasCargueDescargueRecycler);
+
+                    recyclerListasSupervisor(cargo, idUsuario);
+
+                    if (!value.isEmpty()) {
+                        lastVisible = value.getDocuments().get(value.size() - 1);
+                        firstVisible = value.getDocuments().get(0);
+                        Log.d("DEBUG", "lastVisible set to: " + lastVisible.getId());
+                        Log.d("DEBUG", "firstVisible set to: " + firstVisible.getId());
+                    }
+                } else {
+                    // Si no todos los documentos tienen timestamp, manejar de otra forma
+                    Log.d("DEBUG", "Not all documents have a confirmed timestamp");
+
+                    // Alternativamente, puedes mostrar los datos sin ordenar o con un campo alternativo
+                    listasCargue.clear();
+                    for (DocumentSnapshot doc : value.getDocuments()) {
+                        ListasCargueModel listasCargueModel = doc.toObject(ListasCargueModel.class);
+                        listasCargueModel.setId_lista(doc.getId());
+                        listasCargue.add(listasCargueModel);
+                    }
+
+                    listasCargueDescargueRecycler = new AdaptadorMisListasCargue(getContext(), listasCargue);
+                    listasCargueDescargueRecycler.setListas(listasCargue);
+                    recyclerViewListas.setAdapter(listasCargueDescargueRecycler);
+
+                    // Aquí podrías intentar cargar los datos nuevamente o manejar la falta de timestamp
                 }
 
                 RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
