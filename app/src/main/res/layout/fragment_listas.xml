@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/txtListasChequeo"
+            android:paddingBottom="30dp"
             >
 
             <GridLayout
@@ -50,7 +51,9 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/txtListasChequeo"
                 android:columnCount="2"
-                android:rowCount="5">
+                android:rowCount="5"
+
+                >
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvCargueDescargue"
@@ -309,19 +312,5 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
-
-        <!--android:layout_height="40dp"-->
-        <!--
-        <RelativeLayout
-            android:id="@+id/relativeVacio"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/transparente"
-            android:elevation="8dp"
-            >
-        </RelativeLayout>
-        -->
-
     </RelativeLayout>
 </FrameLayout>

@@ -53,7 +53,6 @@ public class HomeFragment extends Fragment {
         imgDesplegar = view.findViewById(R.id.btnDesplegarNosotros);
         imgDesplegarTips = view.findViewById(R.id.imgDesplegarTips);
         txtDescripcionNosotros = view.findViewById(R.id.txtDescripcionNosotros);
-        //lLayoutNosotros = view.findViewById(R.id.LlayoutCarruselImagenes);
         lLayoutCardsTips = view.findViewById(R.id.lLayoutCardsTips);
         txtUsuarioRegistrado = view.findViewById(R.id.txtUsuarioRegistrado);
 
