@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,8 +44,8 @@ public class EditarListasCargue extends AppCompatActivity implements
         EditarFirmasCargue.OnEstadoCamposEditarFirmas
         {
     private Fragment lista_item1 ,lista_item2,lista_item3, lista_item4,lista_item5;
-    private TextView txtInfoLugarCargue, txtInfoConductor, txtInfoVehiculo, txtEstadoCargue, txtFirmasNombres;
     private TextView txtIdLista, txtFechaEditar;
+    private LinearLayout lLayoutIDEditar;
     private FrameLayout bottom_sheet_deplegable_Editar;
     private BottomSheetBehavior<View> bottomSheetBehavior;
     private FloatingActionButton fabItem1, fabItem2, fabItem3, fabItem4, fabItem5;
@@ -67,6 +68,7 @@ public class EditarListasCargue extends AppCompatActivity implements
         txtIdLista = findViewById(R.id.txtIdListaEditarListas);
         txtFechaEditar = findViewById(R.id.txtFechaEditar);
         btnRegresar = findViewById(R.id.btnRegresarEditar);
+        lLayoutIDEditar = findViewById(R.id.lLayoutIDListaEditarCargue);
 
         //Asignación de los Fragmentos de cada item de la lista de Cargue y Descargue
         lista_item1 = new EditarInfoLugarCargue();
@@ -74,13 +76,6 @@ public class EditarListasCargue extends AppCompatActivity implements
         lista_item3 = new EditarInfoVehiculo();
         lista_item4 = new EditarEstadoCargue();
         lista_item5 = new EditarFirmasCargue();
-
-        //Titulos item lista Cargue y Descargue
-        txtInfoLugarCargue = findViewById(R.id.txtItemInfoLugarCargueEditar);
-        txtInfoConductor = findViewById(R.id.txtItemInfoConductorEditar);
-        txtInfoVehiculo = findViewById(R.id.txtItemInfoVehiculoEditar);
-        txtEstadoCargue = findViewById(R.id.txtItemEstadoCargueEditar);
-        txtFirmasNombres = findViewById(R.id.txtItemFirmasNombresEditar);
 
         //Floating Action Button para desplegar los ítems a llenar
         fabItem1 = findViewById(R.id.fabItem1CargueDescargueEditar);
@@ -124,6 +119,7 @@ public class EditarListasCargue extends AppCompatActivity implements
                 volverAtras();
             }
         });
+
 
         fabItem1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,7 +224,6 @@ public class EditarListasCargue extends AppCompatActivity implements
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 idLista = extras.getString("idPos");
-                Log.d("ID LISTA","ID LISTA : "+idLista);
 
                 lista_item1 = EditarInfoLugarCargue.newInstance(idLista);
                 lista_item2 = EditarInfoConductor.newInstance(idLista);
@@ -238,7 +233,6 @@ public class EditarListasCargue extends AppCompatActivity implements
             }
             obtenerListaFirestore();
             txtIdLista.setText(idLista);
-            //txtNumeroLista.setText(AgregarMostrarListas.listaModel.getLista_numero().toString());
             txtFechaEditar.setText(AgregarMostrarListas.listasCargueModel.getItem_1_Informacion_lugar_cargue().getFecha());
         }
 
@@ -246,6 +240,10 @@ public class EditarListasCargue extends AppCompatActivity implements
         {
             Intent intent = getIntent();
             int listId = intent.getIntExtra("list_id", -1);
+
+            listasCargueModel = dbLocal.getListById(listId);
+            txtFechaEditar.setText(listasCargueModel.getItem_1_Informacion_lugar_cargue().getFecha());
+            lLayoutIDEditar.setVisibility(View.GONE);
 
             obtenerListaBDLocal(listId);
 
@@ -265,8 +263,6 @@ public class EditarListasCargue extends AppCompatActivity implements
     }
 
     private void procesarLista(ListasCargueModel listasCargueModel) {
-        Log.d("LISTA MODEL EN PROCESAR","LISTA MODEL EN PROCESAR : "+ listasCargueModel);
-
         ListasCargueModel.InfoLugarCargue informacionLugarCargue = listasCargueModel.getItem_1_Informacion_lugar_cargue();
         ListasCargueModel.InfoDelConductor informacionConductor = listasCargueModel.getItem_2_Informacion_del_conductor();
         ListasCargueModel.InfoDelVehiculo informacionVehiculo = listasCargueModel.getItem_3_Informacion_vehiculo();
@@ -289,10 +285,6 @@ public class EditarListasCargue extends AppCompatActivity implements
                         !informacionLugarCargue.getNombreZona().isEmpty() &&
                         !informacionLugarCargue.getNombreNucleo().isEmpty() &&
                         !informacionLugarCargue.getNombreFinca().isEmpty())){
-
-            Log.d("TIPO CARGUE","TIPO CARGUE : " + informacionLugarCargue.getTipoCargue());
-            Log.d("NOM NUCLEO","NOM NUCLEO : " + informacionLugarCargue.getNombreNucleo());
-            Log.d("NOM FINCA","NOM FINCA : " + informacionLugarCargue.getNombreFinca());
             fabItem1.setImageResource(R.drawable.baseline_check_24);
         }
         else{
@@ -312,10 +304,6 @@ public class EditarListasCargue extends AppCompatActivity implements
                 !informacionConductor.getCualARL().isEmpty() &&
                 !informacionConductor.getAfpRes().isEmpty() &&
                 !informacionConductor.getCualAFP().isEmpty()){
-
-            Log.d("CEDULA","CEDULA : "+informacionConductor.getCedula());
-            Log.d("ARL RES","ARL RES : "+informacionConductor.getArlRes());
-            Log.d("CUAL AFP","CUAL AFP : "+informacionConductor.getCualAFP());
             fabItem2.setImageResource(R.drawable.baseline_check_24);
         }
         else{
@@ -393,7 +381,6 @@ public class EditarListasCargue extends AppCompatActivity implements
     }
     private void obtenerListaFirestore(){
         String idPosLis = MisListasCargue.idPosicionLista;
-        Log.d("idPosLis","idPosLis : " + idPosLis);
             db.collection(pathLista).document(idPosLis).addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException error) {
@@ -580,6 +567,5 @@ public class EditarListasCargue extends AppCompatActivity implements
             fragmentManager.popBackStack(first.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
-
 }
 

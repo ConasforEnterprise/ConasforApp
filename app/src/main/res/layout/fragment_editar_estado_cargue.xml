@@ -10,22 +10,6 @@
     android:id="@+id/frameEstadoCargueEditar"
     >
 
-    <!--
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-        <FrameLayout
-            android:id="@+id/bSheetEstadoCarguePadre"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded"
-            android:backgroundTint="@color/verde_oscuro"
-            app:behavior_hideable="true"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            >
-            -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -55,26 +39,6 @@
                     app:pressedTranslationZ="8dp"
                     />
 
-                <!--
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabItemListaEstadoCargueEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="40dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/white"
-                    android:elevation="8dp"
-                    android:src="@drawable/icono_num_cuatro_listas"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:pressedTranslationZ="8dp"
-                    app:shapeAppearanceOverlay="@style/RoundedShape"
-                    app:tint="@null">
-
-                </com.google.android.material.floatingactionbutton.FloatingActionButton>
-                -->
 
                 <TextView
                     android:id="@+id/txtEncabezadoListaCargueDescargueEdit"
@@ -103,23 +67,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtEncabezadoListaCargueDescargueEdit" />
-
-                <!--
-                <ImageButton
-                    android:id="@+id/imgCerrarDesplegableEstadoCargueEdit"
-                    android:layout_width="32dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="340dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginEnd="36dp"
-                    android:background="@color/transparente"
-                    android:src="@drawable/icono_desplegar_abajo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    >
-
-                </ImageButton>
-                -->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -730,42 +677,6 @@
 
                         </LinearLayout>
 
-                        <!--
-                        <LinearLayout
-                            android:id="@+id/lLayoutTomarFotoEditar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/border_background"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.497"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/view9">
-
-                            <ImageView
-                                android:id="@+id/imgTomarFotoCamionEditar"
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
-                                android:layout_gravity="center"
-                                android:layout_marginHorizontal="20dp"
-                                android:src="@drawable/icono_tomar_foto">
-
-                            </ImageView>
-
-                            <TextView
-                                android:id="@+id/txtTomarFotoCamion"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:text="Tomar foto\ncamión">
-
-                            </TextView>
-                        </LinearLayout>
-                        -->
-
                         <ImageView
                             android:id="@+id/imgFotoCamionEditar"
                             android:layout_width="match_parent"
@@ -799,8 +710,5 @@
                 </RelativeLayout>
                 </androidx.core.widget.NestedScrollView>
             </FrameLayout>
-    <!--
-        </FrameLayout>
-    </ScrollView>
-    -->
+
 </FrameLayout>

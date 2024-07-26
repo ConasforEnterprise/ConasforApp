@@ -48,14 +48,13 @@ public class LlenarListasCargue extends AppCompatActivity implements
         InfoVehiculoFragment.OnEstadoCamposActualizadoListener3,
         EstadoCargueFragment.OnEstadoCamposActualizadoListener4,
         FirmasFragment.OnEstadoCamposActualizadoListener5{
-
-    private LinearLayout layoutInfoLugarCargue,layoutInfoConductor,layoutInfoVehiculo,layoutEstadoCargue,layoutFirmas;
     private FrameLayout bottom_sheet_deplegable;
     private BottomSheetBehavior<View> bottomSheetBehavior;
     private Fragment lista_item1 ,lista_item2,lista_item3, lista_item4,lista_item5;
     private TextView txtEncabezadoBSBListas, txtNumItem;
     private TextView txtInfoLugarCargue, txtInfoConductor, txtInfoVehiculo, txtEstadoCargue, txtFirmasNombres;
     private TextView txtIdLista;
+    private LinearLayout lLayoutIDLlenar;
     private String idLista;
     private FloatingActionButton fabItem1, fabItem2, fabItem3, fabItem4, fabItem5;
     private ImageView imgNumItem;
@@ -71,7 +70,6 @@ public class LlenarListasCargue extends AppCompatActivity implements
     private String horaSalidaRecibido,maderaNoSuperaMamparaRecibido,maderaNoSuperaParalesRecibido,noMaderaAtravieseMamparaRecibido,
             paralesMismaAlturaRecibido,ningunaUndSobrepasaParalesRecibido,cadaBancoAseguradoEslingasRecibido,carroceriaParalesBuenEstadoRecibido,
             conductorSalioLugarCinturonRecibido,paralesAbatiblesAseguradosEstrobosRecibido, fotoCamionRecibido;
-    //byte[] fotoCamionRecibido;
 
     private String nombreSupervisorFirmasRecibido, nombreDespachadorFirmasRecibido,nombreConductorFirmasRecibido,
             nombreOperadorFirmasRecibido,firmaDespachadorRecibido, firmaSupervisorRecibido, firmaConductorRecibido,
@@ -97,6 +95,7 @@ public class LlenarListasCargue extends AppCompatActivity implements
 
         txtIdLista = findViewById(R.id.id_listaLlenarListas);
         imgNumItem = findViewById(R.id.imgNumItem);
+        lLayoutIDLlenar = findViewById(R.id.lLayoutIDLlenarCargue);
 
         //TextView que se modifica cuando dan clic en un item de la lista cargue y descargue
         txtEncabezadoBSBListas = findViewById(R.id.txtEncabezadoListaCargueDescargue);
@@ -114,13 +113,6 @@ public class LlenarListasCargue extends AppCompatActivity implements
         txtInfoVehiculo = findViewById(R.id.txtItemInfoVehiculo);
         txtEstadoCargue = findViewById(R.id.txtItemEstadoCargue);
         txtFirmasNombres = findViewById(R.id.txtItemFirmasNombres);
-
-        //Opciones que al presionar despliegan a la actividad correspondeinte de cada item
-        layoutInfoLugarCargue = findViewById(R.id.lLayoutLugarCargara);
-        layoutInfoConductor = findViewById(R.id.lLayoutInfoConductor);
-        layoutInfoVehiculo = findViewById(R.id.lLayoutInfoVehiculo);
-        layoutEstadoCargue = findViewById(R.id.lLayoutEstadoCargue);
-        layoutFirmas = findViewById(R.id.lLayoutFirmasNombres);
 
         //Asignación de los Fragmentos de cada item de la lista de Cargue y Descargue
         lista_item1 = new InfoLugarCargueFragment();
@@ -192,8 +184,13 @@ public class LlenarListasCargue extends AppCompatActivity implements
 
         LlenarListasCargue.this.getOnBackPressedDispatcher().addCallback(LlenarListasCargue.this, callback);
 
-        idLista = AgregarMostrarListas.idListaStatic;
-        txtIdLista.setText(idLista);
+        if (isInternetAvailable()){
+            idLista = AgregarMostrarListas.idListaStatic;
+            txtIdLista.setText(idLista);
+        }
+        else{
+            lLayoutIDLlenar.setVisibility(View.GONE);
+        }
 
         btnGuardarDatosCargueDescargue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -438,11 +435,6 @@ public class LlenarListasCargue extends AppCompatActivity implements
         item4.setConductorSalioLugarCinturon(conductorSalioLugarCinturonRecibido.toString());
         item4.setParalesAbatiblesAseguradosEstrobos(paralesAbatiblesAseguradosEstrobosRecibido.toString());
         item4.setFotoCamion(fotoCamionRecibido);
-        //item4.setFotoCamion(Arrays.toString(fotoCamionRecibido));
-
-        //String base64Image = EstadoCargueFragment.getImage();
-        //Log.d("BASE 64 EN LLENAR","BASE 64 EN LLENAR : " + base64Image);
-        Log.d("FOTO CAMION RECIBIDO","FOTO CAMION RECIBIDO : " + fotoCamionRecibido);
 
         //ITEM FIRMAS
         ListasCargueModel firmas = new ListasCargueModel();
@@ -519,12 +511,6 @@ public class LlenarListasCargue extends AppCompatActivity implements
 
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         toggleBottomSheet();
-
-        layoutInfoLugarCargue.setEnabled(false);
-        layoutInfoConductor.setEnabled(false);
-        layoutInfoVehiculo.setEnabled(false);
-        layoutEstadoCargue.setEnabled(false);
-        layoutFirmas.setEnabled(false);
     }
     private void infoConductor() {
         Toast.makeText(LlenarListasCargue.this, "Presionó información del conductor", Toast.LENGTH_SHORT).show();

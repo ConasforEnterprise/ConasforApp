@@ -8,7 +8,9 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -53,11 +55,15 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
+import android.content.ContentResolver;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -107,7 +113,6 @@ public class EstadoCargueFragment extends Fragment {
             carroceriaRecibido,dosEslingasBancoRecibido,dosConosReflectivosRecibido, paralesRecibido, observacionesRecibido;
 
     Uri urlImagen;
-    byte[] imageByteArray = new byte[0];
     private ListasCargueDataBaseHelper dbLocal;
     public static String image;
     Boolean estadoBtn = false;
@@ -184,7 +189,6 @@ public class EstadoCargueFragment extends Fragment {
                     }
                 }
                 else {
-
                     agregarDatosBDLocal(image);
                 }
             }
@@ -415,7 +419,7 @@ public class EstadoCargueFragment extends Fragment {
         }
     }
 
-    private void agregarDatosBDLocal(String imagenCamion){//(byte[] decodedBytes){
+    private void agregarDatosBDLocal(String imagenCamion){
         actualizarEstadoLista();
 
         String horaSalida = edtHoraSalida.getText().toString();
@@ -447,7 +451,7 @@ public class EstadoCargueFragment extends Fragment {
                     horaSalida,respuestMaderaNoSuperaAlturaMampara,respuestaMaderaNoSuperaParales,respuestaNoMaderaAtravieseMampara,respuestaParalesMismaAltura,
                     respuestaParalesNingunaUndSobrepasaParales,respuestaCadaBancoAseguradoEslingas,respuestaCarroceriaParlesBuenEstado,respuestaConductorSalioCinturon,
                     respuestaParalesAbatiblesAseguradosEstrobos,imagenCamion,"","","","",
-                    "","","",""); //,"".getBytes()); //Arrays.toString(decodedBytes).getBytes());
+                    "","","","");
             Toast.makeText(getContext(), "Datos almacenados correctamente", Toast.LENGTH_SHORT).show();
         }
     }
@@ -502,11 +506,9 @@ public class EstadoCargueFragment extends Fragment {
                 imgCapturaFoto.setImageBitmap(photo);
                 base64Image = convertBitmapToBase64(photo); // Convierte la imagen a base64
                 image = base64Image;
-                Log.d("TAG FOTO A FIRESTORE","FOTO A FIRESTORE : " + base64Image);
                 if(isNetworkAvailable()){
                     uploadImageToStorage(base64Image);// Sube la imagen a Firestore
                 }
-                //uploadBDLocal(base64Image);
                 Toast.makeText(getContext(), "Se obtuvo la imagen correctamente", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getContext(), "No se pudo obtener la imagen de la cámara", Toast.LENGTH_SHORT).show();
@@ -535,8 +537,6 @@ public class EstadoCargueFragment extends Fragment {
             // Referencia al archivo en el Firebase Storage
             StorageReference imagenRef = storageRef.child("Fotos Camion Cargue Descargue/" + formattedDate + "/" + pathFotoCamion);
 
-            //storageRef = FirebaseStorage.getInstance().getReference().child("Fotos Camion Cargue Descargue/").child(pathFotoCamion);
-
             if(isNetworkAvailable()){
                 imagenRef.putFile(urlImagen).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -549,13 +549,10 @@ public class EstadoCargueFragment extends Fragment {
                                 public void onSuccess(Uri uri) {
                                     String downloadUri = uri.toString();
                                     datosEstadoCargue.put("fotoCamion",downloadUri);
-                                    Log.d("TAG FOTO PERFIL","FOTO PERFIL : " + downloadUri);
-                                    //Toast.makeText(getContext(), "Imagen cargada", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    //Toast.makeText(getContext(), "Falló al subir imagen", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
@@ -567,14 +564,43 @@ public class EstadoCargueFragment extends Fragment {
                     }
                 });
             }
-            //Primer código
+            else{
+                String base64Image = "";
+                try {
+                    InputStream inputStream = getContext().getContentResolver().openInputStream(urlImagen);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                    // Escalar el bitmap
+                    int maxSize = 1024; // Tamaño máximo de 1024x1024 píxeles
+                    bitmap = scaleBitmap(bitmap, maxSize);
+
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream); // Reducir calidad a 80%
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    base64Image = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                    Log.d("BASE64", "BASE64 : " + base64Image);
+                    image = base64Image;
+                    Log.d("IMAGE FOTO CARGADA", "IMAGE FOTO CARGADA : " + image);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    // Agrega este método para obtener el valor de base64Image desde fuera del fragmento
-    public static String getImage() {
-        return image;
+    //Método para reducir el tamaño de la imagen que se carga de la galería antes de subirse a la base de datos
+    private Bitmap scaleBitmap(Bitmap bitmap, int maxSize) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float scale = Math.min((float) maxSize / width, (float) maxSize / height);
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale, scale);
+
+        return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
     }
+
+
 
     // Método para convertir un Bitmap a base64 (puedes ajustar esto según tus necesidades)
     private String convertBitmapToBase64(Bitmap bitmap) {
@@ -585,8 +611,6 @@ public class EstadoCargueFragment extends Fragment {
     }
 
     private String pathFotoCamion; // Variable de instancia para almacenar el nombre de archivo
-
- //Segundo y tercer código
 
     //SUBE LA IMAGEN AL STORAGE DE FIREBASE
     private void uploadImageToStorage(String base64Image) {
@@ -609,8 +633,6 @@ public class EstadoCargueFragment extends Fragment {
 
             // Referencia al archivo en el Firebase Storage
             StorageReference imagenRef = storageRef.child("Fotos Camion Cargue Descargue/" + formattedDate + "/" + pathFotoCamion);
-
-            //storageRef = FirebaseStorage.getInstance().getReference().child("Fotos Camion Cargue Descargue/").child(pathFotoCamion);
 
             UploadTask uploadTask = imagenRef.putBytes(decodedBytes);
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -636,9 +658,6 @@ public class EstadoCargueFragment extends Fragment {
 
     //SUBE LA IMAGEN A LA COLECCION DE LAS LISTAS
     private void uploadImageUrlToFirestore(String imageUrl) {
-
-        Log.d("IMG UPLOAD URL TO FIRESTORE","IMG UPLOAD URL TO FIRESTORE : " + imageUrl);
-
         DocumentReference docRef = db.collection(pathLista).document(idListaCreada);
         datosEstadoCargue.put("fotoCamion", imageUrl);
         docRef.update("Item_4_Estado_cargue",datosEstadoCargue).addOnSuccessListener(new OnSuccessListener<Void>() {

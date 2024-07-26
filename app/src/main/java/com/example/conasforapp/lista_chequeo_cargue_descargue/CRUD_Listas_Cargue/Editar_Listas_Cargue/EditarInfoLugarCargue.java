@@ -121,9 +121,6 @@ public class EditarInfoLugarCargue extends Fragment{
         if (!isNetworkAvailable()){
             listId = getArguments().getInt("list_id", -1);
 
-            Log.d("ID LISTA LOCAL EDITAR INFO LUGAR", "ID LISTA LOCAL EDITAR INFO LUGAR : " + listId);
-            Toast.makeText(requireContext(), "ID: " + listId, Toast.LENGTH_SHORT).show();
-
             if (listId == -1) {
                 Toast.makeText(getContext(), "ID no válido", Toast.LENGTH_SHORT).show();
             requireActivity().finish();
@@ -161,7 +158,6 @@ public class EditarInfoLugarCargue extends Fragment{
 
         Bundle arguments = requireArguments();
         listId = arguments.getInt("list_id", -1);
-        Log.d("ID LISTA", "ID LISTA : " + listId);
         Toast.makeText(requireContext(), "ID: " + listId, Toast.LENGTH_SHORT).show();
         if (listId == -1) {
             requireActivity().finish();

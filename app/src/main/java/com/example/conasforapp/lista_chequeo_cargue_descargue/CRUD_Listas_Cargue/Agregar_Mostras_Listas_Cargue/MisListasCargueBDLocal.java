@@ -202,7 +202,6 @@ public class MisListasCargueBDLocal extends Fragment {
         rvListasBDLocal.addOnItemTouchListener(new RecyclerTouchListener(getContext(), rvListasBDLocal, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                //listaModel = listasCargueBDLocal.get(position);
                 ListasCargueModel listasCargueModel = listasCargueAdapter.getItem(position);
                 String fechaLista = listasCargueModel.getItem_1_Informacion_lugar_cargue().getFecha();
 
@@ -212,8 +211,6 @@ public class MisListasCargueBDLocal extends Fragment {
                         // Formato Date
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                         Date fechaListaDate = dateFormat.parse(fechaLista);
-
-                        Date fechaActual2 = new Date();
 
                         // Fecha actual Calendar Format
                         Calendar calHoy = Calendar.getInstance();
@@ -232,11 +229,7 @@ public class MisListasCargueBDLocal extends Fragment {
 
                         int idPosicionLista = listasCargueAdapter.getItem(position).getId_lista_local();
 
-                        Log.d("ID POSICION LISTA", "ID POSICION LISTA : " + idPosicionLista);
-
                         if (fechaListaDate != null && calFechaLista.before(calHoy)) {
-
-                            Log.d("Se inició leer lista", "Se inició leer lista");
                             String nombreSuprvisor = AgregarMostrarListas.listasCargueModel.getNombre();
                             String finca = listasCargueModel.getItem_1_Informacion_lugar_cargue().getNombreFinca();
 
@@ -253,11 +246,8 @@ public class MisListasCargueBDLocal extends Fragment {
                         }
 
                         else if (fechaListaDate != null && calFechaLista.equals(calHoy)) {
-
-                            Log.d("Se inició actualizar lista", "Se inició actualizar lista");
                             Intent intentActualizar = new Intent(getContext(), EditarListasCargue.class);
                             intentActualizar.putExtra("list_id", listasCargueModel.getId_lista_local());
-                            //intentActualizar.putExtra("campos_completos", finalCamposCompletos);
                             startActivity(intentActualizar);
                             Animatoo.INSTANCE.animateSlideLeft(getContext());
                         }
@@ -398,31 +388,8 @@ public class MisListasCargueBDLocal extends Fragment {
         });
     }
 
-    private void guardarEstadoFiltro(String nombreConductor, Date fechaSeleccionada) {
-        SharedPreferences prefs = getContext().getSharedPreferences("FiltroPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
-        editor.putString("nombreConductor", nombreConductor);
-        if (fechaSeleccionada != null) {
-            editor.putLong("fechaSeleccionada", fechaSeleccionada.getTime());
-        } else {
-            editor.remove("fechaSeleccionada");
-        }
-        editor.apply();
-    }
-
-    private void restaurarEstadoFiltro() {
-        SharedPreferences prefs = getContext().getSharedPreferences("FiltroPrefs", Context.MODE_PRIVATE);
-
-        String nombreConductor = prefs.getString("nombreConductor", null);
-        long fechaSeleccionadaLong = prefs.getLong("fechaSeleccionada", -1);
-        Date fechaSeleccionada = (fechaSeleccionadaLong != -1) ? new Date(fechaSeleccionadaLong) : null;
-
-        buscarListasBDLocal(nombreConductor, fechaSeleccionada);
-    }
-
     private void  buscarListasBDLocal(String nombreConductor, Date fechaSeleccionada) {
-        guardarEstadoFiltro(nombreConductor, fechaSeleccionada);
+        //guardarEstadoFiltro(nombreConductor, fechaSeleccionada);
         todasLasListas.clear();
 
         for (ListasCargueModel lista : listasCargueBDLocal) {
@@ -491,7 +458,7 @@ public class MisListasCargueBDLocal extends Fragment {
             chip.setText(""); // Limpiar el texto del chip
         }
 
-        //// Limpiar los filtros
+        // Limpiar los filtros
         criteriosBusqueda.clear();
 
         Toast.makeText(getContext(), "Se limpiaron los filtros", Toast.LENGTH_SHORT).show();
@@ -522,7 +489,6 @@ public class MisListasCargueBDLocal extends Fragment {
                 public void onClick(DialogInterface dialogInterface, int which) {
                     if (Id_ListaLocal != 0) {
                         dbLocal.deleteListById(Id_ListaLocal);
-                        //listasCargueAdapter.setListas(dbLocal.getCompleteList());
                         listasCargueAdapter.refreshData(dbLocal.getCompleteList());
                     } else {
                         Toast.makeText(getContext(), "No se ha seleccionado ninguna lista para eliminar", Toast.LENGTH_SHORT).show();
@@ -614,7 +580,7 @@ public class MisListasCargueBDLocal extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        restaurarEstadoFiltro();
+        //restaurarEstadoFiltro();
         connectivityReceiver = new ConnectivityReceiver(new ConnectivityReceiver.ConnectivityReceiverListener() {
             @Override
             public void onNetworkConnectionChanged(boolean isConnected) {

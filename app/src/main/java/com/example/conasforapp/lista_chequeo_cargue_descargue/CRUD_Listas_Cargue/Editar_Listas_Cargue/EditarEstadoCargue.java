@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -59,6 +60,8 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -70,7 +73,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class EditarEstadoCargue extends Fragment {
     private View view;
     private TextInputEditText edtHoraSalida;
-    private ImageView imgCapturaFoto, imgCerrarDesplegableEstadoCargue;
+    private ImageView imgCapturaFoto;
     private Button btnActualizarDatosEstadoCargue, btnTomarFoto, btnSubirFotoCamionEditar;
     private RadioGroup rdgMaderaNoSuperaAlturaMampara,
             rdgMaderaNoSuperaParales, rdgNoMaderaAtravieseMampara,
@@ -83,13 +86,11 @@ public class EditarEstadoCargue extends Fragment {
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private String pathLista = "Listas chequeo cargue descargue";
     private ListasCargueModel.EstadoDelCargue estadoCargueModel = new ListasCargueModel.EstadoDelCargue();
-    String id_lista = AgregarMostrarListas.idPosicionLista;
     String nombre ="",cargo = "",finca="";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
     String uid = currentUser.getUid();
     FrameLayout framePadreEstadoCargue,frameHijoEstadoCargue;
-    String pathUsuarios = "Usuarios";
     private String pathFotoCamion;
     private static final int CODE_GALERY = 500;
     String base64Image = "";
@@ -97,7 +98,6 @@ public class EditarEstadoCargue extends Fragment {
     private ListasCargueDataBaseHelper dbLocal;
     private ListasCargueModel listasCargueModel = new ListasCargueModel();
     String idListaPos = null;
-    AdaptadorMisListasCargue listasCargueDescargueRecycler;
     private String horaSalida;
     private static String foto = null;
     public EditarEstadoCargue() {
@@ -116,7 +116,6 @@ public class EditarEstadoCargue extends Fragment {
         btnTomarFoto = view.findViewById(R.id.btnTomarFotoCamionEditar);
         btnSubirFotoCamionEditar = view.findViewById(R.id.btnSubirFotoCamionEditar);
         btnActualizarDatosEstadoCargue = view.findViewById(R.id.btnActualizarDatosEstadoCargueEditar);
-        imgCerrarDesplegableEstadoCargue = view.findViewById(R.id.imgCerrarEstadoCargueEditar);
         framePadreEstadoCargue = view.findViewById(R.id.frameEstadoCargueEditar);
         frameHijoEstadoCargue = view.findViewById(R.id.frameEstadoCargueHijoEdit);
 
@@ -172,31 +171,6 @@ public class EditarEstadoCargue extends Fragment {
             }
         });
 
-        Log.d("TAG ID EN EDIT ESTADO CARGUE","ID EN EDIT ESTADO CARGUE : " + id_lista);
-
-        /*
-        // Obtener el intent que inició esta actividad
-        Intent intent = getActivity().getIntent();
-        Boolean valorEstado = intent.getBooleanExtra("estado clic",true);
-        Log.d("TAG ESTADO CLIC", "ESTADO CLIC : " + valorEstado);
-
-         */
-
-        /*
-        imgCerrarDesplegableEstadoCargue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isNetworkAvailable()){
-                    ocultarFrameWithConnection();
-                }
-                else{
-                    ocultarFrameWithOutConnection();
-                }
-            }
-        });
-
-         */
-
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
@@ -212,7 +186,6 @@ public class EditarEstadoCargue extends Fragment {
 
         if(!isNetworkAvailable()){
             int listId = getArguments().getInt("list_id", -1);
-            Log.d("ID LISTA", "ID LISTA : " + listId);
             Toast.makeText(requireContext(), "ID: " + listId, Toast.LENGTH_SHORT).show();
             if (listId == -1) {
                 requireActivity().finish();
@@ -221,7 +194,6 @@ public class EditarEstadoCargue extends Fragment {
             loadDataDBLocal(listId);
         }
         else {
-            //loadData();
             obtenerLista();
 
             // Obtener los argumentos del Bundle
@@ -232,8 +204,6 @@ public class EditarEstadoCargue extends Fragment {
 
             }
         }
-        //obtenerDatosUsuario();
-        //loadDataFirebase();
         return view;
     }
 
@@ -255,7 +225,7 @@ public class EditarEstadoCargue extends Fragment {
         //getActivity().finish();
         Bundle arguments = requireArguments();
         listId = arguments.getInt("list_id", -1);
-        Log.d("ID LISTA", "ID LISTA : " + listId);
+
         Toast.makeText(requireContext(), "ID: " + listId, Toast.LENGTH_SHORT).show();
         if (listId == -1) {
             requireActivity().finish();
@@ -363,231 +333,13 @@ public class EditarEstadoCargue extends Fragment {
                 imgCapturaFoto.setImageResource(R.drawable.icono_imagen_foto_camion);
                 Toast.makeText(getContext(), "No se ha tomado ninguna foto", Toast.LENGTH_SHORT).show();
             }
-            Log.d("TRIMMEDBASE64","TRIMMEDBASE64 : " + trimmedBase64String);
         }
         else {
             imgCapturaFoto.setImageResource(R.drawable.icono_imagen_foto_camion);
             Toast.makeText(getContext(), "No se ha tomado ninguna foto", Toast.LENGTH_SHORT).show();
         }
-
-        /*
-        int colorVerdeOscuro = ContextCompat.getColor(getContext(), R.color.verde_oscuro);
-        int colorBlanco = ContextCompat.getColor(getContext(),R.color.white);
-
-        Date fechaActualDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_actual_date");
-        Date fechaListaDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_lista_date");
-
-        if(cargo.equals("Administrador") || (fechaActualDate != null && fechaListaDate != null && !fechaActualDate.equals(fechaListaDate)) && !cargo.equals("Administrador")){
-            RadioButton rbSiMaderaNoSuperaAlturaMamparaEditar = view.findViewById(R.id.rbSiMaderaNoSuperaAlturaMamparaEditar);
-            RadioButton rbNoMaderaNoSuperaAlturaMamparaEditar = view.findViewById(R.id.rbNoMaderaNoSuperaAlturaMamparaEditar);
-            RadioButton rbSiMaderaNoSuperaParalesEditar =  view.findViewById(R.id.rbSiMaderaNoSuperaParalesEditar);
-            RadioButton rbNoMaderaNoSuperaParalesEditar = view.findViewById(R.id.rbNoMaderaNoSuperaParalesEditar);
-            RadioButton rbSiMaderaAtravieseMamparaEditar =  view.findViewById(R.id.rbSiMaderaAtravieseMamparaEditar);
-            RadioButton rbNoMaderaAtravieseMamparaEditar = view.findViewById(R.id.rbNoMaderaAtravieseMamparaEditar);
-            RadioButton rbSiParalesMismaAlturaEditar = view.findViewById(R.id.rbSiParalesMismaAlturaEditar);
-            RadioButton rbNoParalesMismaAlturaEditar = view.findViewById(R.id.rbNoParalesMismaAlturaEditar);
-            RadioButton rbSiNingunaUndSobrepasaParalesEditar = view.findViewById(R.id.rbSiNingunaUndSobrepasaParalesEditar);
-            RadioButton rbNoNingunaUndSobrepasaParalesEditar = view.findViewById(R.id.rbNoNingunaUndSobrepasaParalesEditar);
-            RadioButton rbSiCadaBancoAseguradoEslingasEditar = view.findViewById(R.id.rbSiCadaBancoAseguradoEslingasEditar);
-            RadioButton rbNoCadaBancoAseguradoEslingasEditar = view.findViewById(R.id.rbNoCadaBancoAseguradoEslingasEditar);
-            RadioButton rbSiCarroceriaParalesBuenEstadoEditar = view.findViewById(R.id.rbSiCarroceriaParalesBuenEstadoEditar);
-            RadioButton rbNoCarroceriaParalesBuenEstadoEditar = view.findViewById(R.id.rbNoCarroceriaParalesBuenEstadoEditar);
-            RadioButton rbSiConductorSalioCinturonEditar = view.findViewById(R.id.rbSiConductorSalioCinturonEditar);
-            RadioButton rbNoConductorSalioCinturonEditar = view.findViewById(R.id.rbNoConductorSalioCinturonEditar);
-            RadioButton rbSiParalesAbatiblesAseguradosEstrobosEditar = view.findViewById(R.id.rbSiParalesAbatiblesAseguradosEstrobosEditar);
-            RadioButton rbNoParalesAbatiblesAseguradosEstrobosEditar = view.findViewById(R.id.rbNoParalesAbatiblesAseguradosEstrobosEditar);
-
-            rbSiMaderaNoSuperaAlturaMamparaEditar.setEnabled(false);
-            rbNoMaderaNoSuperaAlturaMamparaEditar.setEnabled(false);
-            rbSiMaderaNoSuperaParalesEditar.setEnabled(false);
-            rbNoMaderaNoSuperaParalesEditar.setEnabled(false);
-            rbSiMaderaAtravieseMamparaEditar.setEnabled(false);
-            rbNoMaderaAtravieseMamparaEditar.setEnabled(false);
-            rbSiParalesMismaAlturaEditar.setEnabled(false);
-            rbNoParalesMismaAlturaEditar.setEnabled(false);
-            rbSiNingunaUndSobrepasaParalesEditar.setEnabled(false);
-            rbNoNingunaUndSobrepasaParalesEditar.setEnabled(false);
-            rbSiCadaBancoAseguradoEslingasEditar.setEnabled(false);
-            rbNoCadaBancoAseguradoEslingasEditar.setEnabled(false);
-            rbSiCarroceriaParalesBuenEstadoEditar.setEnabled(false);
-            rbNoCarroceriaParalesBuenEstadoEditar.setEnabled(false);
-            rbSiConductorSalioCinturonEditar.setEnabled(false);
-            rbNoConductorSalioCinturonEditar.setEnabled(false);
-            rbSiParalesAbatiblesAseguradosEstrobosEditar.setEnabled(false);
-            rbNoParalesAbatiblesAseguradosEstrobosEditar.setEnabled(false);
-
-            btnTomarFoto.setVisibility(View.GONE);
-            btnSubirFotoCamionEditar.setVisibility(View.GONE);
-
-            imgCerrarDesplegableEstadoCargue.setVisibility(View.GONE);
-            framePadreEstadoCargue.setBackgroundColor(colorVerdeOscuro);
-            frameHijoEstadoCargue.setBackgroundColor(colorBlanco);
-        }
-
-         */
     }
 
-
-    /*
-    private void loadDataFirebase(){
-        String cargo = AgregarMostrarListas.cargo;
-
-        edtHoraSalida.setText(AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getHoraSalida());
-        String maderaNoSuperaMamparaRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getMaderaNoSuperaMampara();
-        String maderaNoSuperaParalesRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getMaderaNoSuperaParales();
-        String NoMaderaAtraviesaMamparaRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getNoMaderaAtraviesaMampara();
-        String paralesMismaAlturaRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getParalesMismaAltura();
-        String ningunaUndSobrepasaParalesRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getNingunaUndSobrepasaParales();
-        String cadaBancoAseguradoEslingasRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getCadaBancoAseguradoEslingas();
-        String carroceriaParalesBuenEstadoRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getCarroceriaParalesBuenEstado();
-        String conductorSalioLugarCinturonRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getConductorSalioLugarCinturon();
-        String paralesAbatiblesAseguradosEstrobosRes = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getParalesAbatiblesAseguradosEstrobos();
-
-        //Se chequea el valor de selección que tienen los radiobutton
-        if ("Si".equals(maderaNoSuperaMamparaRes)) {
-            rdgMaderaNoSuperaAlturaMampara.check(R.id.rbSiMaderaNoSuperaAlturaMamparaEditar);
-        }
-        else if ("No".equals(maderaNoSuperaMamparaRes)) {
-            rdgMaderaNoSuperaAlturaMampara.check(R.id.rbNoMaderaNoSuperaAlturaMamparaEditar);
-        }
-
-        if ("Si".equals(maderaNoSuperaParalesRes)) {
-            rdgMaderaNoSuperaParales.check(R.id.rbSiMaderaNoSuperaParalesEditar);
-        }
-        else if ("No".equals(maderaNoSuperaParalesRes)) {
-            rdgMaderaNoSuperaParales.check(R.id.rbNoMaderaNoSuperaParalesEditar);
-        }
-
-        if ("Si".equals(NoMaderaAtraviesaMamparaRes)) {
-            rdgNoMaderaAtravieseMampara.check(R.id.rbSiMaderaAtravieseMamparaEditar);
-        }
-        else if ("No".equals(NoMaderaAtraviesaMamparaRes )) {
-            rdgNoMaderaAtravieseMampara.check(R.id.rbNoMaderaAtravieseMamparaEditar);
-        }
-
-        if ("Si".equals(paralesMismaAlturaRes)) {
-            rdgParalesMismaAltura.check(R.id.rbSiParalesMismaAlturaEditar);
-        }
-        else if ("No".equals(paralesMismaAlturaRes)) {
-            rdgParalesMismaAltura.check(R.id.rbNoParalesMismaAlturaEditar);
-        }
-
-        if ("Si".equals(ningunaUndSobrepasaParalesRes)) {
-            rdgNingunaUndSobrepasaParales.check(R.id.rbSiNingunaUndSobrepasaParalesEditar);
-        }
-        else if ("No".equals(ningunaUndSobrepasaParalesRes)) {
-            rdgNingunaUndSobrepasaParales.check(R.id.rbNoNingunaUndSobrepasaParalesEditar);
-        }
-
-        if ("Si".equals(cadaBancoAseguradoEslingasRes)) {
-            rdgCadaBancoAseguradoEslingas.check(R.id.rbSiCadaBancoAseguradoEslingasEditar);
-        }
-        else if ("No".equals(cadaBancoAseguradoEslingasRes)) {
-            rdgCadaBancoAseguradoEslingas.check(R.id.rbNoCadaBancoAseguradoEslingasEditar);
-        }
-
-        if ("Si".equals(carroceriaParalesBuenEstadoRes)) {
-            rdgCarroceriaParlesBuenEstado.check(R.id.rbSiCarroceriaParalesBuenEstadoEditar);
-        }
-        else if ("No".equals(carroceriaParalesBuenEstadoRes)) {
-            rdgCarroceriaParlesBuenEstado.check(R.id.rbNoCarroceriaParalesBuenEstadoEditar);
-        }
-
-        if ("Si".equals(conductorSalioLugarCinturonRes)) {
-            rdgConductorSalioCinturon.check(R.id.rbSiConductorSalioCinturonEditar);
-        }
-        else if ("No".equals(conductorSalioLugarCinturonRes)) {
-            rdgConductorSalioCinturon.check(R.id.rbNoConductorSalioCinturonEditar);
-        }
-
-        if ("Si".equals(paralesAbatiblesAseguradosEstrobosRes)) {
-            rdgParalesAbatiblesAseguradosEstrobos.check(R.id.rbSiParalesAbatiblesAseguradosEstrobosEditar);
-        }
-        else if ("No".equals(paralesAbatiblesAseguradosEstrobosRes)) {
-            rdgParalesAbatiblesAseguradosEstrobos.check(R.id.rbNoParalesAbatiblesAseguradosEstrobosEditar);
-        }
-
-        //obtenerImagenDeStorageYAgregarAColeccion();
-
-        String urlFotoCamion = AgregarMostrarListas.listaModel.getItem_4_Estado_cargue().getFotoCamion();
-        Log.d("EditarEstadoCargue", "URL de la imagen: " + urlFotoCamion);
-
-        if (urlFotoCamion != null && !urlFotoCamion.equals("")){
-            Picasso.with(view.getContext())
-                    .load(urlFotoCamion)
-                    //.resize(400, 400)
-                    .into(imgCapturaFoto);
-        }
-
-
-        else {
-            imgCapturaFoto.setImageResource(R.drawable.icono_imagen_foto_camion);
-            Toast.makeText(getContext(), "No se ha tomado ninguna foto", Toast.LENGTH_SHORT).show();
-        }
-
-
-
-        int colorVerdeOscuro = ContextCompat.getColor(getContext(), R.color.verde_oscuro);
-        int colorBlanco = ContextCompat.getColor(getContext(), R.color.white);
-
-        Date fechaActualDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_actual_date");
-        Date fechaListaDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_lista_date");
-
-        Log.d("CARGO","CARGO : " + cargo);
-
-        if (("Administrador".equals(cargo) || (fechaActualDate != null && fechaListaDate != null && !fechaActualDate.equals(fechaListaDate))) ) {
-            edtHoraSalida.setEnabled(false);
-            edtHoraSalida.setTextColor(colorVerdeOscuro);
-
-            RadioButton maderaNoSuperaAlturaMamparaSi = view.findViewById(R.id.rbSiMaderaNoSuperaAlturaMamparaEditar);
-            RadioButton maderaNoSuperaParalesSi = view.findViewById(R.id.rbSiMaderaNoSuperaParalesEditar);
-            RadioButton maderaNoAtraviezaMamparaSi = view.findViewById(R.id.rbSiMaderaAtravieseMamparaEditar);
-            RadioButton paralesMismaAlturaSi = view.findViewById(R.id.rbSiParalesMismaAlturaEditar);
-            RadioButton ningunaUndSobrepasaParalesSi = view.findViewById(R.id.rbSiNingunaUndSobrepasaParalesEditar);
-            RadioButton cadaBancoAseguradoEslingasSi = view.findViewById(R.id.rbSiCadaBancoAseguradoEslingasEditar);
-            RadioButton carroceriaParalesBuenEstadoSi = view.findViewById(R.id.rbSiCarroceriaParalesBuenEstadoEditar);
-            RadioButton conductorSalioCinturonSi = view.findViewById(R.id.rbSiConductorSalioCinturonEditar);
-            RadioButton paralesAseguradosEstrobosSi = view.findViewById(R.id.rbSiParalesAbatiblesAseguradosEstrobosEditar);
-
-            RadioButton maderaNoSuperaAlturaMamparaNo = view.findViewById(R.id.rbNoMaderaNoSuperaAlturaMamparaEditar);
-            RadioButton maderaNoSuperaParalesNo = view.findViewById(R.id.rbNoMaderaNoSuperaParalesEditar);
-            RadioButton maderaNoAtraviezaMamparaNo = view.findViewById(R.id.rbNoMaderaAtravieseMamparaEditar);
-            RadioButton paralesMismaAlturaNo = view.findViewById(R.id.rbNoParalesMismaAlturaEditar);
-            RadioButton ningunaUndSobrepasaParalesNo = view.findViewById(R.id.rbNoNingunaUndSobrepasaParalesEditar);
-            RadioButton cadaBancoAseguradoEslingasNo = view.findViewById(R.id.rbNoCadaBancoAseguradoEslingasEditar);
-            RadioButton carroceriaParalesBuenEstadoNo = view.findViewById(R.id.rbNoCarroceriaParalesBuenEstadoEditar);
-            RadioButton conductorSalioCinturonNo = view.findViewById(R.id.rbNoConductorSalioCinturonEditar);
-            RadioButton paralesAseguradosEstrobosNo = view.findViewById(R.id.rbNoParalesAbatiblesAseguradosEstrobosEditar);
-
-            maderaNoSuperaAlturaMamparaSi.setEnabled(false);
-            maderaNoSuperaAlturaMamparaNo.setEnabled(false);
-            maderaNoSuperaParalesSi.setEnabled(false);
-            maderaNoSuperaParalesNo.setEnabled(false);
-            maderaNoAtraviezaMamparaSi.setEnabled(false);
-            maderaNoAtraviezaMamparaNo.setEnabled(false);
-            paralesMismaAlturaSi.setEnabled(false);
-            paralesMismaAlturaNo.setEnabled(false);
-            ningunaUndSobrepasaParalesSi.setEnabled(false);
-            ningunaUndSobrepasaParalesNo.setEnabled(false);
-            cadaBancoAseguradoEslingasSi.setEnabled(false);
-            cadaBancoAseguradoEslingasNo.setEnabled(false);
-            carroceriaParalesBuenEstadoSi.setEnabled(false);
-            carroceriaParalesBuenEstadoNo.setEnabled(false);
-            conductorSalioCinturonSi.setEnabled(false);
-            conductorSalioCinturonNo.setEnabled(false);
-            paralesAseguradosEstrobosSi.setEnabled(false);
-            paralesAseguradosEstrobosNo.setEnabled(false);
-
-            btnTomarFoto.setVisibility(View.GONE);
-            btnActualizarDatosEstadoCargue.setVisibility(View.GONE);
-            btnSubirFotoCamionEditar.setVisibility(View.GONE);
-            imgCerrarDesplegableEstadoCargue.setVisibility(View.GONE);
-            framePadreEstadoCargue.setBackgroundColor(colorVerdeOscuro);
-            frameHijoEstadoCargue.setBackgroundColor(colorBlanco);
-        }
-
-    }
-     */
     private void obtenerLista(){
         String idLista = AgregarMostrarListas.listasCargueModel.getId_lista().toString();
         db.collection(pathLista).document(idLista).addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -690,68 +442,6 @@ public class EditarEstadoCargue extends Fragment {
                             imgCapturaFoto.setImageResource(R.drawable.icono_imagen_foto_camion);
                             Toast.makeText(getContext(), "No se ha tomado ninguna foto", Toast.LENGTH_SHORT).show();
                         }
-
-                        /*
-                        int colorVerdeOscuro = ContextCompat.getColor(getContext(), R.color.verde_oscuro);
-                        int colorBlanco = ContextCompat.getColor(getContext(), R.color.white);
-
-                        Date fechaActualDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_actual_date");
-                        Date fechaListaDate = (Date) getActivity().getIntent().getSerializableExtra("fecha_lista_date");
-
-                        Log.d("CARGO","CARGO : " + cargo);
-
-                        if (("Administrador".equals(cargo) || (fechaActualDate != null && fechaListaDate != null && !fechaActualDate.equals(fechaListaDate))) ) {
-                            edtHoraSalida.setEnabled(false);
-                            edtHoraSalida.setTextColor(colorVerdeOscuro);
-
-                            RadioButton maderaNoSuperaAlturaMamparaSi = view.findViewById(R.id.rbSiMaderaNoSuperaAlturaMamparaEditar);
-                            RadioButton maderaNoSuperaParalesSi = view.findViewById(R.id.rbSiMaderaNoSuperaParalesEditar);
-                            RadioButton maderaNoAtraviezaMamparaSi = view.findViewById(R.id.rbSiMaderaAtravieseMamparaEditar);
-                            RadioButton paralesMismaAlturaSi = view.findViewById(R.id.rbSiParalesMismaAlturaEditar);
-                            RadioButton ningunaUndSobrepasaParalesSi = view.findViewById(R.id.rbSiNingunaUndSobrepasaParalesEditar);
-                            RadioButton cadaBancoAseguradoEslingasSi = view.findViewById(R.id.rbSiCadaBancoAseguradoEslingasEditar);
-                            RadioButton carroceriaParalesBuenEstadoSi = view.findViewById(R.id.rbSiCarroceriaParalesBuenEstadoEditar);
-                            RadioButton conductorSalioCinturonSi = view.findViewById(R.id.rbSiConductorSalioCinturonEditar);
-                            RadioButton paralesAseguradosEstrobosSi = view.findViewById(R.id.rbSiParalesAbatiblesAseguradosEstrobosEditar);
-
-                            RadioButton maderaNoSuperaAlturaMamparaNo = view.findViewById(R.id.rbNoMaderaNoSuperaAlturaMamparaEditar);
-                            RadioButton maderaNoSuperaParalesNo = view.findViewById(R.id.rbNoMaderaNoSuperaParalesEditar);
-                            RadioButton maderaNoAtraviezaMamparaNo = view.findViewById(R.id.rbNoMaderaAtravieseMamparaEditar);
-                            RadioButton paralesMismaAlturaNo = view.findViewById(R.id.rbNoParalesMismaAlturaEditar);
-                            RadioButton ningunaUndSobrepasaParalesNo = view.findViewById(R.id.rbNoNingunaUndSobrepasaParalesEditar);
-                            RadioButton cadaBancoAseguradoEslingasNo = view.findViewById(R.id.rbNoCadaBancoAseguradoEslingasEditar);
-                            RadioButton carroceriaParalesBuenEstadoNo = view.findViewById(R.id.rbNoCarroceriaParalesBuenEstadoEditar);
-                            RadioButton conductorSalioCinturonNo = view.findViewById(R.id.rbNoConductorSalioCinturonEditar);
-                            RadioButton paralesAseguradosEstrobosNo = view.findViewById(R.id.rbNoParalesAbatiblesAseguradosEstrobosEditar);
-
-                            maderaNoSuperaAlturaMamparaSi.setEnabled(false);
-                            maderaNoSuperaAlturaMamparaNo.setEnabled(false);
-                            maderaNoSuperaParalesSi.setEnabled(false);
-                            maderaNoSuperaParalesNo.setEnabled(false);
-                            maderaNoAtraviezaMamparaSi.setEnabled(false);
-                            maderaNoAtraviezaMamparaNo.setEnabled(false);
-                            paralesMismaAlturaSi.setEnabled(false);
-                            paralesMismaAlturaNo.setEnabled(false);
-                            ningunaUndSobrepasaParalesSi.setEnabled(false);
-                            ningunaUndSobrepasaParalesNo.setEnabled(false);
-                            cadaBancoAseguradoEslingasSi.setEnabled(false);
-                            cadaBancoAseguradoEslingasNo.setEnabled(false);
-                            carroceriaParalesBuenEstadoSi.setEnabled(false);
-                            carroceriaParalesBuenEstadoNo.setEnabled(false);
-                            conductorSalioCinturonSi.setEnabled(false);
-                            conductorSalioCinturonNo.setEnabled(false);
-                            paralesAseguradosEstrobosSi.setEnabled(false);
-                            paralesAseguradosEstrobosNo.setEnabled(false);
-
-                            btnTomarFoto.setVisibility(View.GONE);
-                            btnActualizarDatosEstadoCargue.setVisibility(View.GONE);
-                            btnSubirFotoCamionEditar.setVisibility(View.GONE);
-                            imgCerrarDesplegableEstadoCargue.setVisibility(View.GONE);
-                            framePadreEstadoCargue.setBackgroundColor(colorVerdeOscuro);
-                            frameHijoEstadoCargue.setBackgroundColor(colorBlanco);
-                        }
-
-                         */
                     }
                 }
             }
@@ -827,8 +517,6 @@ public class EditarEstadoCargue extends Fragment {
             estadoCargueModel.setParalesAbatiblesAseguradosEstrobos("No");
         }
 
-        Log.d("FOTO STATIC","FOTO STATIC : "+ foto);
-
         String respuestMaderaNoSuperaAlturaMampara = estadoCargueModel.getMaderaNoSuperaMampara();
         String respuestaMaderaNoSuperaParales = estadoCargueModel.getMaderaNoSuperaParales();
         String respuestaNoMaderaAtravieseMampara = estadoCargueModel.getNoMaderaAtraviesaMampara();
@@ -851,12 +539,8 @@ public class EditarEstadoCargue extends Fragment {
         datosEstadoCargue.put("conductorSalioLugarCinturon",respuestaConductorSalioCinturon);
         datosEstadoCargue.put("paralesAbatiblesAseguradosEstrobos",respuestaParalesAbatiblesAseguradosEstrobos);
 
-        Log.d("Datos Info Conductor ","Datos Info Conductor : " + datosEstadoCargue);
-        Log.d("TAG ID LISTA EN INFO CONDUCTOR","ID LISTA EN INFO CONDUCTOR : "+ id_lista);
-
         if(isNetworkAvailable()){
             actualizarEstadoLista();
-            //if(id_lista != null){
             if(idListaPos != null){
                 db.collection(pathLista)
                         .document(idListaPos)
@@ -875,9 +559,7 @@ public class EditarEstadoCargue extends Fragment {
         }else {
             actualizarEstadoLista();
             int listId = getArguments().getInt("list_id", -1);
-            Log.d("ID LISTA", "ID LISTA : " + listId);
 
-            //Toast.makeText(requireContext(), "ID: " + listId, Toast.LENGTH_SHORT).show();
             if (listId == -1) {
                 Toast.makeText(getContext(), "ID no v&aacute;lido", Toast.LENGTH_SHORT).show();
                 requireActivity().finish();
@@ -901,30 +583,6 @@ public class EditarEstadoCargue extends Fragment {
 
                 dbLocal.updateList(listasCargueModel);
             }
-        }
-    }
-    private void obtenerDatosUsuario(){
-        if (currentUser != null) {
-            uid = currentUser.getUid(); // El usuario est&aacute; autenticado
-            db.collection(pathUsuarios).document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            UsuariosModel usuariosModel = document.toObject(UsuariosModel.class);
-                            nombre = usuariosModel.getNombre();
-                            cargo = usuariosModel.getCargo();
-                            finca = usuariosModel.getFinca();
-                        }
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getContext(), "Error al obtener datos", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
     }
 
@@ -979,40 +637,71 @@ public class EditarEstadoCargue extends Fragment {
             pathFotoCamion = "foto_camion_" + nombre + "_" + cargo + "_" + formattedDate + "_" + "ID_Usuario__" +uid + "_" +"ID_Lista__"+ idListaPos + "_" + ".jpg";
             StorageReference storageRef = FirebaseStorage.getInstance().getReference();
             StorageReference imagenRef = storageRef.child("Fotos Camion Cargue Descargue/" + formattedDate + "/" + finca + "/" + pathFotoCamion);  // Referencia al archivo en el Firebase Storage
-            //storageRef = FirebaseStorage.getInstance().getReference().child("Fotos Camion Cargue Descargue/").child(pathFotoCamion);
-            imagenRef.putFile(urlImagen).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                    while(!uriTask.isSuccessful());
-                    if(uriTask.isSuccessful()){
-                        uriTask.addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
 
-                                String downloadUri = uri.toString();
+            if(isNetworkAvailable()){
+                imagenRef.putFile(urlImagen).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while(!uriTask.isSuccessful());
+                        if(uriTask.isSuccessful()){
+                            uriTask.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
 
-                                foto = downloadUri;
-                                //datosEstadoCargue.put("fotoCamion",downloadUri);
-                                Log.d("TAG FOTO PERFIL","FOTO PERFIL : " + downloadUri);
-                                //Toast.makeText(getContext(), "Imagen cargada", Toast.LENGTH_SHORT).show();
-                                //uploadImageUrlToFirestore(downloadUri);
-                            }
-                        }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                //Toast.makeText(getContext(), "Fall&oacute; al subir imagen", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                    String downloadUri = uri.toString();
+
+                                    foto = downloadUri;
+                                }
+                            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    //Toast.makeText(getContext(), "Fall&oacute; al subir imagen", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "Ocurri&oacute; un error inesperado", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            else{
+                String base64Image = "";
+                try {
+                    InputStream inputStream = getContext().getContentResolver().openInputStream(urlImagen);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                    // Escalar el bitmap
+                    int maxSize = 1024; // Tamaño máximo de 1024x1024 píxeles
+                    bitmap = scaleBitmap(bitmap, maxSize);
+
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream); // Reducir calidad a 80%
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    base64Image = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+                    updateImageToDBLocal(base64Image);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getContext(), "Ocurri&oacute; un error inesperado", Toast.LENGTH_SHORT).show();
-                }
-            });
+            }
+
         }
+    }
+
+    //Método para reducir el tamaño de la imagen que se carga de la galería antes de subirse a la base de datos
+    private Bitmap scaleBitmap(Bitmap bitmap, int maxSize) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float scale = Math.min((float) maxSize / width, (float) maxSize / height);
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale, scale);
+
+        return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
     }
 
     private void updateImageToDBLocal(String base64Image){
@@ -1048,7 +737,6 @@ public class EditarEstadoCargue extends Fragment {
             StorageReference imagenRef = storageRef.child("Fotos Camion Cargue Descargue/" + formattedDate + "/" + finca + "/" + pathFotoCamion); // Referencia al archivo en el Firebase Storage
 
             // Sube los datos binarios a Firebase Storage
-            //storageRef = FirebaseStorage.getInstance().getReference().child("Fotos Camion Cargue Descargue/").child(pathFotoCamion);
             UploadTask uploadTask = imagenRef.putBytes(decodedBytes);
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -1058,8 +746,6 @@ public class EditarEstadoCargue extends Fragment {
                         @Override
                         public void onSuccess(Uri downloadUri) {
                             foto = downloadUri.toString();
-                            // Almacena la URL en Firestore
-                            //uploadImageUrlToFirestore(downloadUri.toString());
                         }
                     });
                 }
@@ -1070,22 +756,6 @@ public class EditarEstadoCargue extends Fragment {
                 }
             });
         }
-    }
-
-    private void uploadImageUrlToFirestore(String imageUrl) {
-        DocumentReference docRef = db.collection(pathLista).document(idListaPos);
-        datosEstadoCargue.put("fotoCamion", imageUrl);
-        datosEstadoCargue.put("horaSalida", horaSalida);
-        docRef.update("Item_4_Estado_cargue",datosEstadoCargue).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(getContext(), "Imagen subida a Firestore correctamente", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-            }
-        });
     }
 
     public void abrirHora(View view){
