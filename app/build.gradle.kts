@@ -4,7 +4,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.firebase.crashlytics")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.0"
-    //kotlin("plugin.serialization") version "2.0.0"
 }
 
 android {
@@ -110,23 +109,10 @@ dependencies {
     //------- Lottie(Animaciones) ------//
     implementation("com.airbnb.android:lottie:6.3.0") //6.3.0
 
-    //1.0.2
-    //implementation("androidx.biometric:biometric:1.2.0-alpha05")
-
     implementation("com.google.code.gson:gson:2.8.8")
-
-    //implementation("androidx.paging:paging-common-ktx:3.2.1")
-    //implementation("androidx.paging:paging-common-android:3.3.0-rc01")
-    //implementation("androidx.paging:paging-runtime:3.2.1")
 
     implementation("androidx.paging:paging-runtime:3.1.1")
 
     // Opcional - Paging y RxJava
     implementation("androidx.paging:paging-rxjava3:3.1.1")
-    //implementation("com.blogspot.atifsoftwares:animatoolib:1.0.0")
-    //implementation("com.google.code.gson:gson:2.8.7")
-    //implementation("com.google.firebase:firebase-appcheck:22.0.0")
-    //implementation("com.google.firebase:firebase-appcheck-safety-net:22.0.0")
-    //implementation("com.google.firebase:firebase-appcheck-device:22.0.0")
-    //implementation("com.google.firebase:firebase-database:22.0.0")
 }
